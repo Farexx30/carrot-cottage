@@ -18,6 +18,11 @@ public static class PlayerConstants
         public const string ChoppingBack = "ChoppingBack";
         public const string ChoppingLeft = "ChoppingLeft";
         public const string ChoppingRight = "ChoppingRight";
+
+        public const string TillingFront = "TillingFront";
+        public const string TillingBack = "TillingBack";
+        public const string TillingLeft = "TillingLeft";
+        public const string TillingRight = "TillingRight";
     }
 
     public static class States
@@ -25,6 +30,7 @@ public static class PlayerConstants
         public const string Idle = "Idle";
         public const string Walk = "Walk";
         public const string Chopping = "Chopping";
+        public const string Tilling = "Tilling";
     }
 }
 

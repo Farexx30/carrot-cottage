@@ -3,7 +3,7 @@ using Godot;
 
 namespace CarrotCottage.Scripts.Characters.PlayerScripts.States;
 
-public partial class ChoppingState : NodeState
+public partial class TillingState : NodeState
 {
     [Export]
     public Player Player { get; set; } = default!;
@@ -12,7 +12,7 @@ public partial class ChoppingState : NodeState
 
     public override void OnProcess(double delta)
     {
-        
+
     }
 
     public override void OnPhysicsProcess(double delta)
@@ -32,20 +32,20 @@ public partial class ChoppingState : NodeState
     {
         if (Player.CurrentDirection == Vector2.Up)
         {
-            AnimatedSprite2D.Play(PlayerConstants.Animations.ChoppingBack);
+            AnimatedSprite2D.Play(PlayerConstants.Animations.TillingBack);
         }
         else if (Player.CurrentDirection == Vector2.Down
                  || Player.CurrentDirection == Vector2.Zero)
         {
-            AnimatedSprite2D.Play(PlayerConstants.Animations.ChoppingFront);
+            AnimatedSprite2D.Play(PlayerConstants.Animations.TillingFront);
         }
         else if (Player.CurrentDirection == Vector2.Left)
         {
-            AnimatedSprite2D.Play(PlayerConstants.Animations.ChoppingLeft);
+            AnimatedSprite2D.Play(PlayerConstants.Animations.TillingLeft);
         }
         else if (Player.CurrentDirection == Vector2.Right)
         {
-            AnimatedSprite2D.Play(PlayerConstants.Animations.ChoppingRight);
+            AnimatedSprite2D.Play(PlayerConstants.Animations.TillingRight);
         }
     }
 

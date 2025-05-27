@@ -36,6 +36,11 @@ public partial class IdleState : NodeState
         {
             EmitSignal(SignalName.Transition, PlayerConstants.States.Chopping);
         }
+
+        if (Player.CurrentTool == PlayerTools.Hoe && InputEvents.IsHitInput())
+        {
+            EmitSignal(SignalName.Transition, PlayerConstants.States.Tilling);
+        }
     }
 
     public override void OnEnter()
