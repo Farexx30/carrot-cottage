@@ -1,10 +1,11 @@
-[gd_scene load_steps=168 format=3 uid="uid://2vlojmdtqopd"]
+[gd_scene load_steps=169 format=3 uid="uid://2vlojmdtqopd"]
 
 [ext_resource type="Script" uid="uid://ub0nvbwhaej" path="res://Scripts/Characters/PlayerScripts/Player.cs" id="1_7vix2"]
 [ext_resource type="Texture2D" uid="uid://citftwmsosjng" path="res://Assets/Characters/Premium Charakter Spritesheet.png" id="1_no7dv"]
 [ext_resource type="Script" uid="uid://7cp2qexige68" path="res://Scripts/StateMachine/NodeStateMachine.cs" id="2_gqvyu"]
 [ext_resource type="Script" uid="uid://big5p7qmn3mw6" path="res://Scripts/Characters/PlayerScripts/States/IdleState.cs" id="3_uapsp"]
 [ext_resource type="Script" uid="uid://cjqwdf2iij3lc" path="res://Scripts/Characters/PlayerScripts/States/WalkState.cs" id="4_uapsp"]
+[ext_resource type="Script" uid="uid://dijauwxw0wtyk" path="res://Scripts/Characters/PlayerScripts/States/ChoppingState.cs" id="6_gu5w3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvb3o"]
 atlas = ExtResource("1_no7dv")
@@ -673,7 +674,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_376bm")
 }],
-"loop": true,
+"loop": false,
 "name": &"ChoppingBack",
 "speed": 10.0
 }, {
@@ -702,7 +703,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ser1s")
 }],
-"loop": true,
+"loop": false,
 "name": &"ChoppingFront",
 "speed": 10.0
 }, {
@@ -731,7 +732,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vwkj1")
 }],
-"loop": true,
+"loop": false,
 "name": &"ChoppingLeft",
 "speed": 10.0
 }, {
@@ -760,7 +761,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xxcs6")
 }],
-"loop": true,
+"loop": false,
 "name": &"ChoppingRight",
 "speed": 10.0
 }, {
@@ -905,7 +906,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gdj77")
 }],
-"loop": true,
+"loop": false,
 "name": &"TillingBack",
 "speed": 10.0
 }, {
@@ -934,7 +935,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_avgyw")
 }],
-"loop": true,
+"loop": false,
 "name": &"TillingFront",
 "speed": 10.0
 }, {
@@ -963,7 +964,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ne1xc")
 }],
-"loop": true,
+"loop": false,
 "name": &"TillingLeft",
 "speed": 10.0
 }, {
@@ -992,7 +993,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vxkdl")
 }],
-"loop": true,
+"loop": false,
 "name": &"TillingRight",
 "speed": 10.0
 }, {
@@ -1137,7 +1138,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gp3pe")
 }],
-"loop": true,
+"loop": false,
 "name": &"WateringBack",
 "speed": 10.0
 }, {
@@ -1166,7 +1167,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_df033")
 }],
-"loop": true,
+"loop": false,
 "name": &"WateringFront",
 "speed": 10.0
 }, {
@@ -1195,7 +1196,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d25rb")
 }],
-"loop": true,
+"loop": false,
 "name": &"WateringLeft",
 "speed": 10.0
 }, {
@@ -1224,7 +1225,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vad68")
 }],
-"loop": true,
+"loop": false,
 "name": &"WateringRight",
 "speed": 10.0
 }]
@@ -1239,9 +1240,8 @@ script = ExtResource("1_7vix2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_m81am")
-animation = &"IdleFront"
+animation = &"WalkBack"
 autoplay = "IdleFront"
-frame_progress = 0.573551
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -1258,5 +1258,10 @@ AnimatedSprite2D = NodePath("../../AnimatedSprite2D")
 
 [node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("Player", "AnimatedSprite2D")]
 script = ExtResource("4_uapsp")
+Player = NodePath("../..")
+AnimatedSprite2D = NodePath("../../AnimatedSprite2D")
+
+[node name="Chopping" type="Node" parent="StateMachine" node_paths=PackedStringArray("Player", "AnimatedSprite2D")]
+script = ExtResource("6_gu5w3")
 Player = NodePath("../..")
 AnimatedSprite2D = NodePath("../../AnimatedSprite2D")

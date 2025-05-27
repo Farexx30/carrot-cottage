@@ -18,3 +18,4 @@ tile_set = ExtResource("1_acm4j")
 
 [node name="Player" parent="GameTileMap" instance=ExtResource("2_ugc7x")]
 position = Vector2(263, 238)
+CurrentTool = 1

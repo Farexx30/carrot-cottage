@@ -36,4 +36,7 @@ public static class InputEvents
 
     public static bool IsMovementInput() 
         => s_direction != Vector2.Zero;
+
+    public static bool IsHitInput()
+        => Input.IsActionJustPressed(InputConstants.Hit);
 }

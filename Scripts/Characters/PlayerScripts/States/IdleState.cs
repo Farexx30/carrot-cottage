@@ -31,6 +31,11 @@ public partial class IdleState : NodeState
         {
             EmitSignal(SignalName.Transition, PlayerConstants.States.Walk);
         }
+
+        if (Player.CurrentTool == PlayerTools.Axe && InputEvents.IsHitInput())
+        {
+            EmitSignal(SignalName.Transition, PlayerConstants.States.Chopping);
+        }
     }
 
     public override void OnEnter()
@@ -39,7 +44,8 @@ public partial class IdleState : NodeState
         {
             AnimatedSprite2D.Play(PlayerConstants.Animations.IdleBack);
         }
-        else if (Player.CurrentDirection == Vector2.Down)
+        else if (Player.CurrentDirection == Vector2.Down
+                 || Player.CurrentDirection == Vector2.Zero)
         {
             AnimatedSprite2D.Play(PlayerConstants.Animations.IdleFront);
         }

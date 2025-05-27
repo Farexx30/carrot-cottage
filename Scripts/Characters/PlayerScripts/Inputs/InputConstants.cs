@@ -12,4 +12,5 @@ public static class InputConstants
     public const string WalkDown = "WalkDown";
     public const string WalkLeft = "WalkLeft";
     public const string WalkRight = "WalkRight";
+    public const string Hit = "Hit";
 }
