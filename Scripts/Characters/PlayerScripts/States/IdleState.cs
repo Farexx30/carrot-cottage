@@ -41,6 +41,11 @@ public partial class IdleState : NodeState
         {
             EmitSignal(SignalName.Transition, PlayerConstants.States.Tilling);
         }
+
+        if (Player.CurrentTool == PlayerTools.WateringCan && InputEvents.IsHitInput())
+        {
+            EmitSignal(SignalName.Transition, PlayerConstants.States.Watering);
+        }
     }
 
     public override void OnEnter()
