@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "CarrotCottage": {
+      "commandName": "Project"
+    },
+    "Farexx30ExecutableProfile": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Programy\\Godot_v4.4.1-stable_mono_win64\\Godot_v4.4.1-stable_mono_win64\\Godot_v4.4.1-stable_mono_win64.exe",
+      "commandLineArgs": "--path, --verbose",
+      "workingDirectory": ".",
+      "nativeDebugging": false
+    }
+  }
+}
