@@ -20,6 +20,21 @@ public partial class IdleState : NodeState
 
     public override void OnPhysicsProcess(double delta)
     {
+
+    }
+
+    public override void OnNextTransition()
+    {
+        _ = InputEvents.MovementInputDirection();
+
+        if (InputEvents.IsMovementInput())
+        {
+            EmitSignal(SignalName.Transition, PlayerConstants.States.Walk);
+        }
+    }
+
+    public override void OnEnter()
+    {
         if (Player.CurrentDirection == Vector2.Up)
         {
             AnimatedSprite2D.Play(PlayerConstants.Animations.IdleBack);
@@ -36,21 +51,6 @@ public partial class IdleState : NodeState
         {
             AnimatedSprite2D.Play(PlayerConstants.Animations.IdleRight);
         }
-    }
-
-    public override void OnNextTransition()
-    {
-        _ = InputEvents.MovementInputDirection();
-
-        if (InputEvents.IsMovementInput())
-        {
-            EmitSignal(SignalName.Transition, PlayerConstants.States.Walk);
-        }
-    }
-
-    public override void OnEnter()
-    {
-
     }
 
     public override void OnExit()
