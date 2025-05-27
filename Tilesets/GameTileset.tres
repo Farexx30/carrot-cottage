@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://mouxg0codq2m"]
+[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://mouxg0codq2m"]
 
 [ext_resource type="Texture2D" uid="uid://4cedd5ej0q57" path="res://Assets/Tilesets/ground tiles/water frames/Water.png" id="1_ebtdh"]
 [ext_resource type="Texture2D" uid="uid://b5ijwnlkvlc5f" path="res://Assets/Objects/Mushrooms, Flowers, Stones.png" id="2_p8dw5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://m8lwqroja4w2" path="res://Assets/Tilesets/ground tiles/New tiles/OnWater_DarkerGrassTiles.png" id="6_7lyku"]
 [ext_resource type="Texture2D" uid="uid://bfoqhpywtdpsy" path="res://Assets/Tilesets/ground tiles/New tiles/OnWater_StoneTiles.png" id="6_p8dw5"]
 [ext_resource type="Texture2D" uid="uid://sfrncl0w8ebk" path="res://Assets/Tilesets/ground tiles/New tiles/Nature_BushTiles.png" id="7_fow6k"]
+[ext_resource type="PackedScene" uid="uid://xieomg0lpv2o" path="res://Scenes/Houses/LargeHouse.tscn" id="7_k6v08"]
 [ext_resource type="Texture2D" uid="uid://c3mr5q2vsfggs" path="res://Assets/Tilesets/ground tiles/New tiles/OnWater_DarkerSoilTiles.png" id="8_fow6k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qr2rt"]
@@ -2721,6 +2722,9 @@ texture = ExtResource("5_fow6k")
 0:6/2/terrains_peering_bit/top_left_corner = 4
 0:6/2/terrains_peering_bit/top_side = 4
 0:6/2/terrains_peering_bit/top_right_corner = 4
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4jgrx"]
+scenes/1/scene = ExtResource("7_k6v08")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8dw5"]
 texture = ExtResource("6_p8dw5")
@@ -6093,3 +6097,4 @@ sources/21 = SubResource("TileSetAtlasSource_p8dw5")
 sources/24 = SubResource("TileSetAtlasSource_k6v08")
 sources/25 = SubResource("TileSetAtlasSource_4jgrx")
 sources/1 = SubResource("TileSetAtlasSource_wded8")
+sources/2 = SubResource("TileSetScenesCollectionSource_4jgrx")

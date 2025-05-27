@@ -1233,20 +1233,21 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_no7dv"]
-radius = 7.0
-height = 16.0
+radius = 1.0
+height = 10.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7vix2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_m81am")
 animation = &"WalkBack"
 autoplay = "IdleFront"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -1)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_no7dv")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("InitialNodeState")]
