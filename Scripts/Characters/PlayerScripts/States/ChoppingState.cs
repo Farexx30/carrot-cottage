@@ -7,6 +7,7 @@ public partial class ChoppingState : NodeState
 {
     [Export]
     public Player Player { get; set; } = default!;
+
     [Export]
     public AnimatedSprite2D AnimatedSprite2D { get; set; } = default!;
 
