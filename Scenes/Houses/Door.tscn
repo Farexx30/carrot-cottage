@@ -1,32 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dt1lmfq41eid7"]
+[gd_scene load_steps=14 format=3 uid="uid://dt1lmfq41eid7"]
 
 [ext_resource type="Texture2D" uid="uid://vkcdm12e8g4r" path="res://Assets/Tilesets/Building parts/door animation sprites.png" id="1_cbcdx"]
 [ext_resource type="Script" uid="uid://dsaryn5hsjfum" path="res://Scripts/Objects/DoorScripts/Door.cs" id="1_gwh5f"]
 [ext_resource type="PackedScene" uid="uid://1xeew504miiq" path="res://Scenes/Components/InteractableComponent.tscn" id="3_rpvur"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwh5f"]
-atlas = ExtResource("1_cbcdx")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rpvur"]
-atlas = ExtResource("1_cbcdx")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq5e0"]
-atlas = ExtResource("1_cbcdx")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgk5n"]
-atlas = ExtResource("1_cbcdx")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3urms"]
-atlas = ExtResource("1_cbcdx")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_75lp6"]
-atlas = ExtResource("1_cbcdx")
-region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02vdn"]
 atlas = ExtResource("1_cbcdx")
@@ -60,29 +36,6 @@ region = Rect2(0, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gwh5f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rpvur")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fq5e0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dgk5n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3urms")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_75lp6")
-}],
-"loop": false,
-"name": &"Closing",
-"speed": 9.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_02vdn")
 }],
 "loop": false,
@@ -109,7 +62,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_daq4g")
 }],
 "loop": false,
-"name": &"Opening",
+"name": &"OpeningOrClosing",
 "speed": 9.0
 }]
 
@@ -124,7 +77,7 @@ script = ExtResource("1_gwh5f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kpthn")
-animation = &"Opening"
+animation = &"OpeningOrClosing"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -136,3 +89,5 @@ shape = SubResource("RectangleShape2D_cbcdx")
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_fq5e0")
 debug_color = Color(0.996511, 0, 0.185277, 0.42)
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="OnAnimatedSprite2DFrameChanged"]

@@ -44,7 +44,7 @@ public partial class NodeStateMachine : Node
         _currentNodeState?.OnPhysicsProcess(delta);
         _currentNodeState?.OnNextTransition();
 
-        GD.Print($"Current state name: {_currentNodeStateName}");
+        //GD.Print($"Current state name: {_currentNodeStateName}");
     }
 
     private void TransitionTo(StringName nodeStateName)
@@ -68,6 +68,6 @@ public partial class NodeStateMachine : Node
         _currentNodeState = newNodeState;
         _currentNodeStateName = nodeStateName;
 
-        GD.Print($"Transitioned to state: {nodeStateName}");
+        //GD.Print($"Transitioned to state: {nodeStateName}");
     }
 }

@@ -10,6 +10,11 @@ public partial class Door : StaticBody2D
     private CollisionShape2D _collisionShape2D = default!;
     private InteractableComponent _interactableComponent = default!;
 
+    private const int FrameIndexToDisableCollision = 4; // Frame at which the door collision shape should be disabled.
+    private const int FrameIndexToEnableCollision = 3; // Frame at which the door collision shape should be enabled.
+
+    private bool _isOpening = false;
+
     public override void _Ready()
     {
         _animatedSprite2D = GetNode<AnimatedSprite2D>(DoorConstants.Nodes.AnimatedSprite2D);
@@ -22,15 +27,34 @@ public partial class Door : StaticBody2D
 
     private void OnInteractableActivated()
     {
-        _animatedSprite2D.Play(DoorConstants.Animations.Opening);
+        _animatedSprite2D.Play(DoorConstants.Animations.OpeningOrClosing);
+        _isOpening = true;
 
-        _collisionShape2D.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+        GD.Print($"ACTIVATING: Current frame: {_animatedSprite2D.Frame}");
     }
 
     private void OnInteractableDeactivated()
     {
-        _animatedSprite2D.Play(DoorConstants.Animations.Closing);
+        _animatedSprite2D.PlayBackwards(DoorConstants.Animations.OpeningOrClosing);
+        _isOpening = false;
 
-        _collisionShape2D.SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
+        GD.Print($"DEACTIVATING: Current frame: {_animatedSprite2D.Frame}");
+    }
+
+    private void OnAnimatedSprite2DFrameChanged()
+    {
+        GD.Print($"Frame changed: {_animatedSprite2D.Frame}");
+
+        if (_animatedSprite2D.Animation == DoorConstants.Animations.OpeningOrClosing)
+        {
+            if (_isOpening && _animatedSprite2D.Frame == FrameIndexToDisableCollision)
+            {
+                _collisionShape2D.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+            }
+            else if (!_isOpening && _animatedSprite2D.Frame == FrameIndexToEnableCollision)
+            {
+                _collisionShape2D.SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
+            }
+        }
     }
 }

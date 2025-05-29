@@ -17,7 +17,7 @@ public static class DoorConstants
 
     public static class Animations
     {
-        public const string Opening = "Opening";
-        public const string Closing = "Closing";
+        public const string Idle = "Idle";
+        public const string OpeningOrClosing = "OpeningOrClosing";
     }
 }
