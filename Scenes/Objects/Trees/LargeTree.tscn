@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://cr4kyevkfvf8q"]
+
+[ext_resource type="Texture2D" uid="uid://dv7cns18ex2yd" path="res://Assets/Objects/Trees, stumps and bushes.png" id="1_praj0"]
+[ext_resource type="Script" uid="uid://5biese1gopim" path="res://Scripts/Objects/TreeScripts/LargeTree.cs" id="2_3shh3"]
+[ext_resource type="PackedScene" uid="uid://51hbt54rbm7l" path="res://Scenes/Components/HealthComponent.tscn" id="3_mwe1k"]
+[ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/TreeShake.gdshader" id="4_mwe1k"]
+[ext_resource type="PackedScene" uid="uid://h0w22fuwd26x" path="res://Scenes/Components/HurtComponent.tscn" id="4_ws56c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwe1k"]
+resource_local_to_scene = true
+shader = ExtResource("4_mwe1k")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_praj0"]
+atlas = ExtResource("1_praj0")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_praj0"]
+radius = 3.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5j8p"]
+radius = 11.0
+height = 24.0
+
+[node name="LargeTree" type="Sprite2D"]
+material = SubResource("ShaderMaterial_mwe1k")
+position = Vector2(1, -22)
+texture = SubResource("AtlasTexture_praj0")
+script = ExtResource("2_3shh3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_praj0")
+
+[node name="HurtComponent" parent="." instance=ExtResource("4_ws56c")]
+Tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(-1, 11)
+shape = SubResource("CapsuleShape2D_o5j8p")
+debug_color = Color(0.973983, 0, 0.430078, 0.42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_mwe1k")]
+MaxHealth = 15

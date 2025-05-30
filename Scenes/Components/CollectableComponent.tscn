@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx35c4goa22uw"]
+
+[ext_resource type="Script" uid="uid://dxoh7po7ubkhw" path="res://Scripts/Components/CollectableComponent.cs" id="1_1ighc"]
+
+[node name="CollectableComponent" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_1ighc")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

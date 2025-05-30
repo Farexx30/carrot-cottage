@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CarrotCottage"
-run/main_scene="uid://bxqj7rjehrinp"
+run/main_scene="uid://bh2an3g2uxjhx"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -36,6 +36,7 @@ folder_colors={
 "res://Properties/": "blue",
 "res://Scenes/": "green",
 "res://Scripts/": "purple",
+"res://Shaders/": "pink",
 "res://Tilesets/": "yellow"
 }
 
@@ -77,6 +78,9 @@ Hit={
 2d_physics/layer_1="Housing"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Interactable"
+2d_physics/layer_4="Tools"
+2d_physics/layer_5="Objects"
+2d_physics/layer_6="Collectable"
 
 [rendering]
 

@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://bybcymnh7334j"]
+
+[ext_resource type="Texture2D" uid="uid://dv7cns18ex2yd" path="res://Assets/Objects/Trees, stumps and bushes.png" id="1_dp8ia"]
+[ext_resource type="Script" uid="uid://qts2rpbt48e4" path="res://Scripts/Objects/TreeScripts/SmallTree.cs" id="2_2rda7"]
+[ext_resource type="PackedScene" uid="uid://h0w22fuwd26x" path="res://Scenes/Components/HurtComponent.tscn" id="2_52b2c"]
+[ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/TreeShake.gdshader" id="4_7ctxe"]
+[ext_resource type="PackedScene" uid="uid://51hbt54rbm7l" path="res://Scenes/Components/HealthComponent.tscn" id="4_pu616"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pu616"]
+resource_local_to_scene = true
+shader = ExtResource("4_7ctxe")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52b2c"]
+atlas = ExtResource("1_dp8ia")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygt7k"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rda7"]
+radius = 7.0
+height = 20.0
+
+[node name="SmallTree" type="Sprite2D"]
+material = SubResource("ShaderMaterial_pu616")
+position = Vector2(0, -12)
+texture = SubResource("AtlasTexture_52b2c")
+script = ExtResource("2_2rda7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ygt7k")
+
+[node name="HurtComponent" parent="." instance=ExtResource("2_52b2c")]
+position = Vector2(0.305742, 12.4438)
+Tool = 1
+
+[node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(-0.305742, -9.4438)
+shape = SubResource("CapsuleShape2D_2rda7")
+debug_color = Color(0.733333, 0.466667, 0.196078, 0.223529)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_pu616")]
+MaxHealth = 3
