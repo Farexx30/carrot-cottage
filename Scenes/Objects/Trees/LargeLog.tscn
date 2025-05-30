@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxjpbtihfxp0m"]
+
+[ext_resource type="Texture2D" uid="uid://dv7cns18ex2yd" path="res://Assets/Objects/Trees, stumps and bushes.png" id="1_cpj2w"]
+[ext_resource type="PackedScene" uid="uid://dx35c4goa22uw" path="res://Scenes/Components/CollectableComponent.tscn" id="2_3gjv2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snco2"]
+atlas = ExtResource("1_cpj2w")
+region = Rect2(112, 96, 32, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpj2w"]
+radius = 3.0
+height = 10.0
+
+[node name="LargeLog" type="Sprite2D"]
+texture = SubResource("AtlasTexture_snco2")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_3gjv2")]
+CollectableName = "LargeLog"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cpj2w")
