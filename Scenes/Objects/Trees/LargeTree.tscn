@@ -11,7 +11,6 @@ resource_local_to_scene = true
 shader = ExtResource("4_mwe1k")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 30.0
-shader_parameter/shake_height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_praj0"]
 atlas = ExtResource("1_praj0")
@@ -28,12 +27,13 @@ height = 24.0
 [node name="LargeTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_mwe1k")
 texture = SubResource("AtlasTexture_praj0")
+offset = Vector2(0, -16)
 script = ExtResource("2_3shh3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, 20)
+position = Vector2(-1, 4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_praj0")
 
@@ -41,7 +41,7 @@ shape = SubResource("CapsuleShape2D_praj0")
 Tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
-position = Vector2(-1, 11)
+position = Vector2(-1, -5)
 shape = SubResource("CapsuleShape2D_o5j8p")
 debug_color = Color(0.973983, 0, 0.430078, 0.42)
 
