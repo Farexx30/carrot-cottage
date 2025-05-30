@@ -12,7 +12,6 @@ public static class DoorConstants
     {
         public const string AnimatedSprite2D = "AnimatedSprite2D";
         public const string CollisionShape2D = "CollisionShape2D";
-        public const string InteractableComponent = "InteractableComponent";
     }
 
     public static class Animations

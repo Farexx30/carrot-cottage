@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://xuejcg5sac28"]
+
+[ext_resource type="Texture2D" uid="uid://b5ijwnlkvlc5f" path="res://Assets/Objects/Mushrooms, Flowers, Stones.png" id="1_od8ay"]
+[ext_resource type="Script" uid="uid://wbigejhpg2ft" path="res://Scripts/Objects/RockScripts/SmallRock.cs" id="2_od8ay"]
+[ext_resource type="PackedScene" uid="uid://h0w22fuwd26x" path="res://Scenes/Components/HurtComponent.tscn" id="3_kbrqd"]
+[ext_resource type="PackedScene" uid="uid://51hbt54rbm7l" path="res://Scenes/Components/HealthComponent.tscn" id="4_o2bce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8832"]
+atlas = ExtResource("1_od8ay")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qief6"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmoec"]
+radius = 6.0
+
+[node name="SmallRock" type="Sprite2D"]
+texture = SubResource("AtlasTexture_t8832")
+script = ExtResource("2_od8ay")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_qief6")
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_kbrqd")]
+Tool = 1
+
+[node name="HurtCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_pmoec")
+debug_color = Color(0.818519, 0.0754852, 9.62615e-08, 0.42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_o2bce")]
+MaxHealth = 5

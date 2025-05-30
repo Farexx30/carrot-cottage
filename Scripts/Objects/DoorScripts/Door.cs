@@ -19,7 +19,7 @@ public partial class Door : StaticBody2D
     {
         _animatedSprite2D = GetNode<AnimatedSprite2D>(DoorConstants.Nodes.AnimatedSprite2D);
         _collisionShape2D = GetNode<CollisionShape2D>(DoorConstants.Nodes.CollisionShape2D);
-        _interactableComponent = GetNode<InteractableComponent>(DoorConstants.Nodes.InteractableComponent);
+        _interactableComponent = GetNode<InteractableComponent>(ComponentNames.InteractableComponent);
 
         _interactableComponent.InteractableActivated += OnInteractableActivated;
         _interactableComponent.InteractableDeactivated += OnInteractableDeactivated;

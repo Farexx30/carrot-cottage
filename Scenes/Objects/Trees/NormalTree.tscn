@@ -4,13 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://51hbt54rbm7l" path="res://Scenes/Components/HealthComponent.tscn" id="2_rgq3y"]
 [ext_resource type="Script" uid="uid://bgll6o56232ym" path="res://Scripts/Objects/TreeScripts/NormalTree.cs" id="2_xnge1"]
 [ext_resource type="PackedScene" uid="uid://h0w22fuwd26x" path="res://Scenes/Components/HurtComponent.tscn" id="3_a2ap5"]
-[ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/TreeShake.gdshader" id="5_6xj26"]
+[ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/Shake.gdshader" id="5_6xj26"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6xj26"]
 resource_local_to_scene = true
 shader = ExtResource("5_6xj26")
 shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
+shader_parameter/shake_speed = 30.0
+shader_parameter/shake_height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5j8p"]
 atlas = ExtResource("1_epl7h")
@@ -26,7 +27,6 @@ height = 22.0
 
 [node name="NormalTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_6xj26")
-position = Vector2(0, -13)
 texture = SubResource("AtlasTexture_o5j8p")
 script = ExtResource("2_xnge1")
 
