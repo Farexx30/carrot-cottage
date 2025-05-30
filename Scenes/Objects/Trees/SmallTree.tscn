@@ -11,7 +11,6 @@ resource_local_to_scene = true
 shader = ExtResource("4_7ctxe")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 30.0
-shader_parameter/shake_height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52b2c"]
 atlas = ExtResource("1_dp8ia")
@@ -28,17 +27,19 @@ height = 20.0
 [node name="SmallTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_pu616")
 texture = SubResource("AtlasTexture_52b2c")
+offset = Vector2(0, -8)
 script = ExtResource("2_2rda7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 11)
+position = Vector2(0, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ygt7k")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_52b2c")]
-position = Vector2(0.305742, 12.4438)
+position = Vector2(0.305742, 3.4438)
 Tool = 1
 
 [node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
@@ -47,4 +48,5 @@ shape = SubResource("CapsuleShape2D_2rda7")
 debug_color = Color(0.733333, 0.466667, 0.196078, 0.223529)
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_pu616")]
+position = Vector2(0, -9)
 MaxHealth = 3

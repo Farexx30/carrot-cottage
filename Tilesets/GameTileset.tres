@@ -40,6 +40,7 @@ texture = ExtResource("2_p8dw5")
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
+3:1/0/y_sort_origin = 1
 4:1/0 = 0
 5:1/0 = 0
 0:2/0 = 0
@@ -5149,12 +5150,20 @@ texture = ExtResource("4_sds16")
 1:0/0 = 0
 3:0/size_in_atlas = Vector2i(2, 2)
 3:0/0 = 0
+3:0/0/y_sort_origin = 8
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 10.5, 3, 10.5, 3.5, 13, -3, 13)
 5:0/size_in_atlas = Vector2i(2, 2)
 5:0/0 = 0
+5:0/0/y_sort_origin = 8
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 10.5, 3, 10.5, 3.5, 13, -3, 13)
 7:0/size_in_atlas = Vector2i(2, 2)
 7:0/0 = 0
+7:0/0/y_sort_origin = 8
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 10.5, 3, 10.5, 3.5, 13, -3, 13)
 9:0/size_in_atlas = Vector2i(2, 2)
 9:0/0 = 0
+9:0/0/y_sort_origin = 8
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 10.5, 3, 10.5, 3.5, 13, -3, 13)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjsa5"]
 texture = ExtResource("6_7lyku")
@@ -6079,6 +6088,7 @@ texture = ExtResource("6_7lyku")
 0:6/1/terrains_peering_bit/top_right_corner = 2
 
 [resource]
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Ground_GrassTerrain_0"
 terrain_set_0/terrain_0/color = Color(0.486275, 0.988235, 0, 1)
