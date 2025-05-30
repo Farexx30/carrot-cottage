@@ -55,4 +55,11 @@ public partial class NormalTree : Sprite2D
             shaderMaterial.SetShaderParameter("shake_intensity", 0.0f);
         }
     }
+
+    public override void _ExitTree()
+    {
+        // Unsubscribe from signals to prevent memory leaks although it's not strictly necessary in this case since it should be freed automatically.
+        _hurtComponent.Hurt -= OnHurt;
+        _healthComponent.NoHealthReached -= OnNoHealthReached;
+    }
 }

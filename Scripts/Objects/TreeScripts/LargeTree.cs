@@ -3,6 +3,8 @@ using CarrotCottage.Scripts.Objects.TreeScripts;
 using Godot;
 using System;
 
+namespace CarrotCottage.Scripts.Objects.TreeScripts;
+
 public partial class LargeTree : Sprite2D
 {
     private HurtComponent _hurtComponent = default!;
@@ -60,5 +62,12 @@ public partial class LargeTree : Sprite2D
             await ToSignal(GetTree().CreateTimer(0.5f), Timer.SignalName.Timeout);
             shaderMaterial.SetShaderParameter("shake_intensity", 0.0f);
         }
+    }
+
+    public override void _ExitTree()
+    {
+        // Unsubscribe from signals to prevent memory leaks although it's not strictly necessary in this case since it should be freed automatically.
+        _hurtComponent.Hurt -= OnHurt;
+        _healthComponent.NoHealthReached -= OnNoHealthReached;
     }
 }
