@@ -1,5 +1,6 @@
 using CarrotCottage.Scripts.Characters.PlayerScripts;
 using Godot;
+using System.Threading.Tasks;
 
 namespace CarrotCottage.Scripts.Components;
 

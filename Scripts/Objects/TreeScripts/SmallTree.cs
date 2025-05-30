@@ -2,6 +2,7 @@ using CarrotCottage.Scripts.Components;
 using CarrotCottage.Scripts.Objects.TreeScripts;
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 namespace CarrotCottage.Scripts.Objects.TreeScripts;
 
@@ -39,8 +40,15 @@ public partial class SmallTree : Sprite2D
         GetParent().AddChild(smallLogInstance);
     }
 
-    private void OnHurt(int damage)
+    private async void OnHurt(int damage)
     {
         _healthComponent.ApplyDamage(damage);
+
+        if (Material is ShaderMaterial shaderMaterial)
+        {
+            shaderMaterial.SetShaderParameter("shake_intensity", 1.6f);
+            await ToSignal(GetTree().CreateTimer(0.4f), Timer.SignalName.Timeout);
+            shaderMaterial.SetShaderParameter("shake_intensity", 0.0f);
+        }
     }
 }

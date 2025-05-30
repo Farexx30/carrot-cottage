@@ -50,8 +50,15 @@ public partial class LargeTree : Sprite2D
         GetParent().AddChild(smallLogInstance2);
     }
 
-    private void OnHurt(int damage)
+    private async void OnHurt(int damage)
     {
         _healthComponent.ApplyDamage(damage);
+
+        if (Material is ShaderMaterial shaderMaterial)
+        {
+            shaderMaterial.SetShaderParameter("shake_intensity", 1.0f);
+            await ToSignal(GetTree().CreateTimer(0.5f), Timer.SignalName.Timeout);
+            shaderMaterial.SetShaderParameter("shake_intensity", 0.0f);
+        }
     }
 }
