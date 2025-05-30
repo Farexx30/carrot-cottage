@@ -57,4 +57,11 @@ public partial class Door : StaticBody2D
             }
         }
     }
+
+    public override void _ExitTree()
+    {
+        // Unsubscribe from signals to prevent memory leaks although it's not strictly necessary in this case since it should be freed automatically.
+        _interactableComponent.InteractableActivated -= OnInteractableActivated;
+        _interactableComponent.InteractableDeactivated -= OnInteractableDeactivated;
+    }
 }
