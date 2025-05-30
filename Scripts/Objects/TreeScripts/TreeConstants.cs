@@ -4,12 +4,6 @@ namespace CarrotCottage.Scripts.Objects.TreeScripts;
 
 public class TreeConstants
 {
-    public static class Nodes
-    {
-        public const string HurtComponent = "HurtComponent";
-        public const string HealthComponent = "HealthComponent";
-    }
-
     public static class Scenes
     {
         public static readonly PackedScene SmallLogScene = GD.Load<PackedScene>("res://Scenes/Objects/Trees/SmallLog.tscn");

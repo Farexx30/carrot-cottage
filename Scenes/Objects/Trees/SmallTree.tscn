@@ -3,14 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dv7cns18ex2yd" path="res://Assets/Objects/Trees, stumps and bushes.png" id="1_dp8ia"]
 [ext_resource type="Script" uid="uid://qts2rpbt48e4" path="res://Scripts/Objects/TreeScripts/SmallTree.cs" id="2_2rda7"]
 [ext_resource type="PackedScene" uid="uid://h0w22fuwd26x" path="res://Scenes/Components/HurtComponent.tscn" id="2_52b2c"]
-[ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/TreeShake.gdshader" id="4_7ctxe"]
+[ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/Shake.gdshader" id="4_7ctxe"]
 [ext_resource type="PackedScene" uid="uid://51hbt54rbm7l" path="res://Scenes/Components/HealthComponent.tscn" id="4_pu616"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pu616"]
 resource_local_to_scene = true
 shader = ExtResource("4_7ctxe")
 shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
+shader_parameter/shake_speed = 30.0
+shader_parameter/shake_height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52b2c"]
 atlas = ExtResource("1_dp8ia")
@@ -26,7 +27,6 @@ height = 20.0
 
 [node name="SmallTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_pu616")
-position = Vector2(0, -12)
 texture = SubResource("AtlasTexture_52b2c")
 script = ExtResource("2_2rda7")
 

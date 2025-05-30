@@ -14,8 +14,8 @@ public partial class NormalTree : Sprite2D
 
     public override void _Ready()
     {
-        _hurtComponent = GetNode<HurtComponent>(TreeConstants.Nodes.HurtComponent);
-        _healthComponent = GetNode<HealthComponent>(TreeConstants.Nodes.HealthComponent);
+        _hurtComponent = GetNode<HurtComponent>(ComponentNames.HurtComponent);
+        _healthComponent = GetNode<HealthComponent>(ComponentNames.HealthComponent);
 
         _hurtComponent.Hurt += OnHurt;
         _healthComponent.NoHealthReached += OnNoHealthReached;
