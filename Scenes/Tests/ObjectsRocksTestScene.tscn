@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://bbf445qkp4woh"]
 
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="1_11rnn"]
-[ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player/Player.tscn" id="2_6bubc"]
+[ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="2_6bubc"]
 
 [node name="ObjectsRocksTestScene" type="Node2D"]
 

@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=3 uid="uid://ciyf7s1ge0tjf"]
+
+[ext_resource type="Script" uid="uid://bkax22jhhk1v0" path="res://Scripts/Characters/Npcs/ChickenScripts/Chicken.cs" id="1_3oxoq"]
+[ext_resource type="Texture2D" uid="uid://egsvpcn1kuo4" path="res://Assets/Animals/Chicken/Free Chicken Sprites.png" id="1_n6won"]
+[ext_resource type="Texture2D" uid="uid://babj3li4fnpfr" path="res://Assets/Animals/Chicken/chicken default.png" id="1_t8kq8"]
+[ext_resource type="Script" uid="uid://7cp2qexige68" path="res://Scripts/StateMachine/NodeStateMachine.cs" id="3_psv6k"]
+[ext_resource type="Script" uid="uid://ggwjh1gy8mma" path="res://Scripts/Characters/Npcs/ChickenScripts/States/IdleState.cs" id="4_dqj2l"]
+[ext_resource type="Script" uid="uid://d30tvdljhuq2b" path="res://Scripts/Characters/Npcs/ChickenScripts/States/WalkState.cs" id="5_dqj2l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6won"]
+atlas = ExtResource("1_n6won")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trsv0"]
+atlas = ExtResource("1_n6won")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8kq8"]
+atlas = ExtResource("1_t8kq8")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oxoq"]
+atlas = ExtResource("1_t8kq8")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uvbs"]
+atlas = ExtResource("1_t8kq8")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgct7"]
+atlas = ExtResource("1_t8kq8")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0mt3"]
+atlas = ExtResource("1_t8kq8")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7714"]
+atlas = ExtResource("1_t8kq8")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qghdk"]
+atlas = ExtResource("1_t8kq8")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx53x"]
+atlas = ExtResource("1_t8kq8")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuojm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6won")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trsv0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8kq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oxoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uvbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgct7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0mt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7714")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qghdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx53x")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t8kq8"]
+radius = 1.0
+height = 8.0
+
+[node name="Chicken" type="CharacterBody2D"]
+script = ExtResource("1_3oxoq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_wuojm")
+animation = &"Walk"
+frame_progress = 0.512031
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_t8kq8")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 6.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("InitialNodeState")]
+script = ExtResource("3_psv6k")
+InitialNodeState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("Chicken", "AnimatedSprite2D", "IdleStateTimer")]
+script = ExtResource("4_dqj2l")
+Chicken = NodePath("../..")
+AnimatedSprite2D = NodePath("../../AnimatedSprite2D")
+IdleStateTimer = NodePath("../../IdleStateTimer")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("Chicken", "AnimatedSprite2D", "NavigationAgent2D")]
+script = ExtResource("5_dqj2l")
+Chicken = NodePath("../..")
+AnimatedSprite2D = NodePath("../../AnimatedSprite2D")
+NavigationAgent2D = NodePath("../../NavigationAgent2D")
+
+[node name="IdleStateTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

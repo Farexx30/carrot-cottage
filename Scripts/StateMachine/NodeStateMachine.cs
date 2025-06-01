@@ -14,8 +14,12 @@ public partial class NodeStateMachine : Node
     private NodeState? _currentNodeState;
     private StringName? _currentNodeStateName;
 
+    private StringName _parentNodeName = default!;
+
     public override void _Ready()
     {
+        _parentNodeName = GetParent().Name;
+
         foreach(var child in GetChildren())
         {
             if (child is NodeState nodeState)
@@ -44,7 +48,7 @@ public partial class NodeStateMachine : Node
         _currentNodeState?.OnPhysicsProcess(delta);
         _currentNodeState?.OnNextTransition();
 
-        //GD.Print($"Current state name: {_currentNodeStateName}");
+        GD.Print($"{_parentNodeName} current state name: {_currentNodeStateName}");
     }
 
     private void TransitionTo(StringName nodeStateName)

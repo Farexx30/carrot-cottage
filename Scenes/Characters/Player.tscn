@@ -1248,7 +1248,7 @@ script = ExtResource("1_7vix2")
 CurrentTool = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_m81am")
 animation = &"IdleBack"
 autoplay = "IdleFront"
