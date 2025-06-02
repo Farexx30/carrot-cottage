@@ -95,24 +95,26 @@ radius = 1.0
 height = 8.0
 
 [node name="Chicken" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 64
 script = ExtResource("1_3oxoq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_wuojm")
 animation = &"Walk"
 frame_progress = 0.512031
+offset = Vector2(0, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(-1, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_t8kq8")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
+path_desired_distance = 10.0
+path_postprocessing = 1
 radius = 6.0
-debug_enabled = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("InitialNodeState")]
 script = ExtResource("3_psv6k")

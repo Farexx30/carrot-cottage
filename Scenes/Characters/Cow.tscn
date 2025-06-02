@@ -102,26 +102,29 @@ height = 22.0
 
 [node name="Cow" type="CharacterBody2D"]
 y_sort_enabled = true
+collision_layer = 64
 script = ExtResource("1_wmc5o")
 MinIdleStateTime = 10.0
 MaxIdleStateTime = 25.0
 MaxWalkCycles = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_x6h8s")
 animation = &"Walk"
 autoplay = "Idle"
-frame_progress = 0.711285
-offset = Vector2(0, -11)
+frame_progress = 0.901064
+offset = Vector2(0, -13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xlvei")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 2
-avoidance_enabled = true
-debug_enabled = true
+path_postprocessing = 1
+radius = 12.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("InitialNodeState")]
 script = ExtResource("2_v4xak")
