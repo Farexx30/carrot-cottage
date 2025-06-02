@@ -2,12 +2,12 @@ using CarrotCottage.Scripts.StateMachine;
 using Godot;
 using System;
 
-namespace CarrotCottage.Scripts.Characters.Npcs.ChickenScripts.States;
+namespace CarrotCottage.Scripts.Characters.Npcs.States;
 
 public partial class WalkState : NodeState
 {
     [Export]
-    public Npc Chicken { get; set; } = default!;
+    public Npc Npc { get; set; } = default!;
 
     [Export]
     public AnimatedSprite2D AnimatedSprite2D { get; set; } = default!;
@@ -47,14 +47,14 @@ public partial class WalkState : NodeState
     {
         if (NavigationAgent2D.IsNavigationFinished())
         {
-            ++Chicken.CurrentWalkCycle;
+            ++Npc.CurrentWalkCycle;
             SetMovementTarget();
 
             return;
         }
 
         var targetPosition = NavigationAgent2D.GetNextPathPosition();
-        var targetDirection = Chicken.GlobalPosition.DirectionTo(targetPosition);
+        var targetDirection = Npc.GlobalPosition.DirectionTo(targetPosition);
 
         var velocity = targetDirection * _speed;
 
@@ -65,45 +65,45 @@ public partial class WalkState : NodeState
         else
         {
             AnimatedSprite2D.FlipH = targetDirection.X < 0;
-            Chicken.Velocity = velocity;
+            Npc.Velocity = velocity;
         }
 
-        Chicken.MoveAndSlide();
+        Npc.MoveAndSlide();
     }
 
     public override void OnNextTransition()
     {
-        if (Chicken.WalkCycles == Chicken.CurrentWalkCycle)
+        if (Npc.WalkCycles == Npc.CurrentWalkCycle)
         {
-            Chicken.Velocity = Vector2.Zero;
+            Npc.Velocity = Vector2.Zero;
             EmitSignal(SignalName.Transition, NpcConstants.States.Idle);
         }
     }
 
     public override void OnEnter()
     {
-        Chicken.WalkCycles = GD.RandRange(Chicken.MinWalkCycles, Chicken.MaxWalkCycles);
-        Chicken.CurrentWalkCycle = 0;
+        Npc.WalkCycles = GD.RandRange(Npc.MinWalkCycles, Npc.MaxWalkCycles);
+        Npc.CurrentWalkCycle = 0;
 
         SetMovementTarget();
 
         AnimatedSprite2D.Play(NpcConstants.Animations.Walk);
 
-        Chicken.CurrentStateName = NpcConstants.States.Walk;
+        Npc.CurrentStateName = NpcConstants.States.Walk;
     }
 
     public override void OnExit()
     {
-        Chicken.IsFlippedH = AnimatedSprite2D.FlipH;
+        Npc.IsFlippedH = AnimatedSprite2D.FlipH;
         AnimatedSprite2D.Stop();
     }
 
     private void OnVelocityComputed(Vector2 safeVelocity)
     {
-        if (Chicken.CurrentStateName == NpcConstants.States.Walk)
+        if (Npc.CurrentStateName == NpcConstants.States.Walk)
         {
             AnimatedSprite2D.FlipH = safeVelocity.X < 0;
-            Chicken.Velocity = safeVelocity;
+            Npc.Velocity = safeVelocity;
         }
     }
 }
