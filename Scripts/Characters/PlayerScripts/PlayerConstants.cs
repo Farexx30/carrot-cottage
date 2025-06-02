@@ -1,3 +1,5 @@
+using Godot;
+
 namespace CarrotCottage.Scripts.Characters.PlayerScripts;
 
 public static class PlayerConstants
