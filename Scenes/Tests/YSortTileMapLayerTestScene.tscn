@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://dfqh16wo2qhup"]
 
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="1_ha0ko"]
-[ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player/Player.tscn" id="2_nc1t2"]
+[ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="2_nc1t2"]
 
 [node name="YSortTileMapLayerTestScene" type="Node2D"]
 y_sort_enabled = true
