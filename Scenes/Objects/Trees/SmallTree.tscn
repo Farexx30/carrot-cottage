@@ -26,15 +26,16 @@ height = 20.0
 
 [node name="SmallTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_pu616")
+position = Vector2(0, 3)
 texture = SubResource("AtlasTexture_52b2c")
-offset = Vector2(0, -8)
+offset = Vector2(0, -11)
 script = ExtResource("2_2rda7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 2)
+position = Vector2(0, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ygt7k")
 
@@ -43,7 +44,7 @@ position = Vector2(0.305742, 3.4438)
 Tool = 1
 
 [node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
-position = Vector2(-0.305742, -9.4438)
+position = Vector2(-0.305742, -11.4438)
 shape = SubResource("CapsuleShape2D_2rda7")
 debug_color = Color(0.733333, 0.466667, 0.196078, 0.223529)
 

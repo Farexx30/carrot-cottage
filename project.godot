@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="CarrotCottage"
-run/main_scene="uid://jaxnypq33nj7"
+run/main_scene="uid://bx7wd6xjjciyx"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+run/layer_7=""
 
 [display]
 
@@ -38,10 +39,6 @@ folder_colors={
 "res://Shaders/": "pink",
 "res://Tilesets/": "yellow"
 }
-
-[global_group]
-
-navigation_polygon_source_geometry_group=""
 
 [input]
 

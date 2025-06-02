@@ -26,15 +26,16 @@ height = 22.0
 
 [node name="NormalTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_6xj26")
+position = Vector2(0, 3)
 texture = SubResource("AtlasTexture_o5j8p")
-offset = Vector2(0, -9)
+offset = Vector2(0, -12)
 script = ExtResource("2_xnge1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 9)
+position = Vector2(0, 6)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_epl7h")
 
@@ -47,5 +48,6 @@ position = Vector2(0, -6)
 Tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_xnge1")
 debug_color = Color(0.988181, 0, 0.304867, 0.42)

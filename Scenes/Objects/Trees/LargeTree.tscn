@@ -26,14 +26,15 @@ height = 24.0
 
 [node name="LargeTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_mwe1k")
+position = Vector2(0, 5)
 texture = SubResource("AtlasTexture_praj0")
-offset = Vector2(0, -16)
+offset = Vector2(0, -21)
 script = ExtResource("2_3shh3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, 4)
+position = Vector2(-1, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_praj0")
 
@@ -41,7 +42,7 @@ shape = SubResource("CapsuleShape2D_praj0")
 Tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
-position = Vector2(-1, -5)
+position = Vector2(-1, -10)
 shape = SubResource("CapsuleShape2D_o5j8p")
 debug_color = Color(0.973983, 0, 0.430078, 0.42)
 
