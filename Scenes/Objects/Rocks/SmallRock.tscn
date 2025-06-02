@@ -17,13 +17,14 @@ height = 12.0
 radius = 6.0
 
 [node name="SmallRock" type="Sprite2D"]
+position = Vector2(0, 3)
 texture = SubResource("AtlasTexture_t8832")
+offset = Vector2(0, -3)
 script = ExtResource("2_od8ay")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_od8ay")
 
@@ -31,7 +32,7 @@ shape = SubResource("CapsuleShape2D_od8ay")
 Tool = 1
 
 [node name="HurtCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
-position = Vector2(0, 1)
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_pmoec")
 debug_color = Color(0.818519, 0.0754852, 9.62615e-08, 0.42)
 
