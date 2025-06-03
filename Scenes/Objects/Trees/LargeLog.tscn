@@ -9,15 +9,17 @@ region = Rect2(112, 96, 32, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpj2w"]
 radius = 3.0
-height = 10.0
+height = 12.0
 
 [node name="LargeLog" type="Sprite2D"]
+y_sort_enabled = true
 texture = SubResource("AtlasTexture_snco2")
+offset = Vector2(0, -6)
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_3gjv2")]
 CollectableName = "LargeLog"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
-position = Vector2(0, 2)
+position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cpj2w")

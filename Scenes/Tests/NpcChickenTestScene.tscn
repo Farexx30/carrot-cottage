@@ -39,7 +39,6 @@ y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_k1kgh")
 
 [node name="Chicken" parent="Chickens" instance=ExtResource("3_k1kgh")]
-y_sort_enabled = true
 position = Vector2(169, 289)
 
 [node name="Chicken2" parent="Chickens" instance=ExtResource("3_k1kgh")]

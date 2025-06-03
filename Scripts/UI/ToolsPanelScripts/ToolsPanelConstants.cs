@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarrotCottage.Scripts.UI;
+namespace CarrotCottage.Scripts.UI.ToolsPanelScripts;
 
 public static class ToolsPanelConstants
 {
