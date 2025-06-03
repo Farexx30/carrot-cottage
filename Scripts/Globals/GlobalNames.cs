@@ -9,4 +9,5 @@ namespace CarrotCottage.Scripts.Globals;
 public static class GlobalNames
 {
     public const string ToolsManager = "/root/ToolsManager";
+    public const string InventoryManager = "/root/InventoryManager";
 }

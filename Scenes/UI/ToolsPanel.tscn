@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cecvt7kq1fm58"]
 
 [ext_resource type="Theme" uid="uid://dh4sgc86nk71c" path="res://Scenes/UI/Themes/GameUITheme.tres" id="1_nlo45"]
-[ext_resource type="Script" uid="uid://d4b3xja4naq0l" path="res://Scripts/UI/ToolsPanel.cs" id="2_e4d1w"]
+[ext_resource type="Script" uid="uid://d4b3xja4naq0l" path="res://Scripts/UI/ToolsPanelScripts/ToolsPanel.cs" id="2_e4d1w"]
 [ext_resource type="Texture2D" uid="uid://2tjssg8vi2rl" path="res://Assets/Objects/Items/tools-n-meterial-items.png" id="2_tpmlw"]
 [ext_resource type="Texture2D" uid="uid://bht7jranpxyua" path="res://Assets/Objects/Items/items-spritesheet.png" id="3_nskmm"]
 
@@ -35,11 +35,15 @@ atlas = SubResource("CompressedTexture2D_q7q3w")
 region = Rect2(0, 64, 16, 16)
 
 [node name="ToolsPanel" type="PanelContainer"]
-offset_right = 26.0
-offset_bottom = 26.0
+anchors_preset = -1
+anchor_right = 0.2625
+anchor_bottom = 0.133333
+offset_right = -142.0
+offset_bottom = -22.0
 theme = ExtResource("1_nlo45")
 theme_type_variation = &"DarkWoodPanel"
 script = ExtResource("2_e4d1w")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

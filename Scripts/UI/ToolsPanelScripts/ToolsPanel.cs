@@ -3,7 +3,7 @@ using CarrotCottage.Scripts.Characters.PlayerScripts.Inputs;
 using CarrotCottage.Scripts.Globals;
 using Godot;
 
-namespace CarrotCottage.Scripts.UI;
+namespace CarrotCottage.Scripts.UI.ToolsPanelScripts;
 
 public partial class ToolsPanel : PanelContainer
 {

@@ -17,7 +17,7 @@ texture = SubResource("AtlasTexture_7r6yo")
 offset = Vector2(0, -8)
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_7r6yo")]
-CollectableName = "Milk"
+CollectableName = &"Milk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
 position = Vector2(0, -5)

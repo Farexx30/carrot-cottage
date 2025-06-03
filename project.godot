@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CarrotCottage"
-run/main_scene="uid://bx7wd6xjjciyx"
+run/main_scene="uid://bite50dg18f6i"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 run/layer_7=""
@@ -19,6 +19,7 @@ run/layer_7=""
 [autoload]
 
 ToolsManager="*res://Scripts/Globals/ToolsManager.cs"
+InventoryManager="*res://Scripts/Globals/InventoryManager.cs"
 
 [display]
 
