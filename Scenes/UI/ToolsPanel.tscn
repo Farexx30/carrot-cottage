@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://cecvt7kq1fm58"]
+
+[ext_resource type="Theme" uid="uid://dh4sgc86nk71c" path="res://Scenes/UI/Themes/GameUITheme.tres" id="1_nlo45"]
+[ext_resource type="Script" uid="uid://d4b3xja4naq0l" path="res://Scripts/UI/ToolsPanel.cs" id="2_e4d1w"]
+[ext_resource type="Texture2D" uid="uid://2tjssg8vi2rl" path="res://Assets/Objects/Items/tools-n-meterial-items.png" id="2_tpmlw"]
+[ext_resource type="Texture2D" uid="uid://bht7jranpxyua" path="res://Assets/Objects/Items/items-spritesheet.png" id="3_nskmm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nskmm"]
+atlas = ExtResource("2_tpmlw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e4d1w"]
+load_path = "res://.godot/imported/tools-n-meterial-items.png-7043c2c23d06fca846719b042d6f03f9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cehpy"]
+atlas = SubResource("CompressedTexture2D_e4d1w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cehpy"]
+load_path = "res://.godot/imported/tools-n-meterial-items.png-7043c2c23d06fca846719b042d6f03f9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3kh5"]
+atlas = SubResource("CompressedTexture2D_cehpy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfri3"]
+atlas = ExtResource("3_nskmm")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q7q3w"]
+load_path = "res://.godot/imported/items-spritesheet.png-9990726159adfcbeb5f6a3dc29b40771.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwshq"]
+atlas = SubResource("CompressedTexture2D_q7q3w")
+region = Rect2(0, 64, 16, 16)
+
+[node name="ToolsPanel" type="PanelContainer"]
+offset_right = 26.0
+offset_bottom = 26.0
+theme = ExtResource("1_nlo45")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_e4d1w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="AxeTool" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_nskmm")
+icon_alignment = 1
+
+[node name="HoeTool" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_cehpy")
+icon_alignment = 1
+
+[node name="WateringCanTool" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_p3kh5")
+icon_alignment = 1
+
+[node name="WheatSeedsTool" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_sfri3")
+icon_alignment = 1
+
+[node name="TomatoSeedsTool" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_xwshq")
+icon_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/AxeTool" to="." method="OnAxeToolPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HoeTool" to="." method="OnHoeToolPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/WateringCanTool" to="." method="OnWateringCanToolPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/WheatSeedsTool" to="." method="OnWheatSeedsToolPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/TomatoSeedsTool" to="." method="OnTomatoSeedsToolPressed"]
