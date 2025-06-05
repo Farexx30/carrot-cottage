@@ -34,6 +34,7 @@ tile_set = ExtResource("2_ql6my")
 tile_set = ExtResource("2_ql6my")
 
 [node name="PlantFields" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("OnWaterTileMapLayer", "GroundTileMapLayer") instance=ExtResource("6_cgkmd")]
 OnWaterTileMapLayer = NodePath("../GameTileMap/OnWater")
