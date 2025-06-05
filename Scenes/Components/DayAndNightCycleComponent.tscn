@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd185diblk1pd"]
+
+[ext_resource type="Script" uid="uid://bupirjf0y8scq" path="res://Scripts/Components/DayAndNightCycleComponent.cs" id="1_2rgtg"]
+
+[sub_resource type="Gradient" id="Gradient_qg1rh"]
+offsets = PackedFloat32Array(0, 0.138353, 0.157014, 0.172458, 0.191763, 0.211068, 0.227156, 0.2426, 0.258044, 0.292793, 0.506435, 0.846203, 0.910553)
+colors = PackedColorArray(0.0196078, 0.0509804, 0.25098, 1, 0.00392157, 0.133333, 0.333333, 1, 0, 0.207843, 0.419608, 1, 0, 0.247059, 0.419608, 1, 0.00392157, 0.368627, 0.537255, 1, 0.0313726, 0.415686, 0.592157, 1, 0.0348039, 0.436704, 0.607169, 1, 0.0627451, 0.607843, 0.729412, 1, 0.423529, 0.8, 0.784314, 1, 0.878431, 0.92549, 0.745098, 1, 0.878431, 0.92549, 0.745098, 1, 0.888116, 0.906745, 0.720104, 1, 0.888116, 0.906745, 0.720104, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5gkln"]
+gradient = SubResource("Gradient_qg1rh")
+
+[node name="DayAndNightCycleComponent" type="CanvasModulate"]
+script = ExtResource("1_2rgtg")
+DayAndNightGradientTexture = SubResource("GradientTexture1D_5gkln")

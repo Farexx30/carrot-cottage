@@ -1,0 +1,174 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1ow5mqmo7ufc"]
+
+[ext_resource type="Theme" uid="uid://dh4sgc86nk71c" path="res://Scenes/UI/Themes/GameUITheme.tres" id="1_guafj"]
+[ext_resource type="Script" uid="uid://dvg142vpjdyf4" path="res://Scripts/UI/DayAndNightPanelScripts/DayAndNightPanel.cs" id="2_36knl"]
+[ext_resource type="Texture2D" uid="uid://bg2mtypbqckh2" path="res://Assets/UI/Sprite sheet for Basic Pack.png" id="2_085ef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36knl"]
+atlas = ExtResource("2_085ef")
+region = Rect2(421, 34, 7, 12)
+
+[node name="DayAndNightPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_guafj")
+script = ExtResource("2_36knl")
+
+[node name="DayCounterPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -80.0
+offset_bottom = 26.0
+theme = ExtResource("1_guafj")
+theme_type_variation = &"DayAndNightCounterPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="DayCounterPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="DayCounterLabel" type="Label" parent="DayCounterPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DayAndNightLabel"
+text = "Day 0"
+
+[node name="ClockPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 28.0
+offset_bottom = 54.0
+theme = ExtResource("1_guafj")
+theme_type_variation = &"DayAndNightCounterPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="ClockPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ClockLabel" type="Label" parent="ClockPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DayAndNightLabel"
+text = "00:00"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -80.0
+offset_top = 56.0
+offset_bottom = 78.0
+
+[node name="RegularSpeedButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 26.0
+offset_bottom = 22.0
+theme_type_variation = &"DayAndNightButton"
+
+[node name="TextureRect" type="TextureRect" parent="Control/RegularSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_36knl")
+
+[node name="FastSpeedButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 27.0
+offset_right = 53.0
+offset_bottom = 22.0
+theme_type_variation = &"DayAndNightButton"
+
+[node name="TextureRect" type="TextureRect" parent="Control/FastSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_36knl")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/FastSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 2.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_36knl")
+
+[node name="LightningMcQueenSpeedButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 54.0
+offset_right = 80.0
+offset_bottom = 22.0
+theme_type_variation = &"DayAndNightButton"
+
+[node name="TextureRect" type="TextureRect" parent="Control/LightningMcQueenSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_36knl")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LightningMcQueenSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_36knl")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LightningMcQueenSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_36knl")
+
+[connection signal="pressed" from="Control/RegularSpeedButton" to="." method="OnRegularSpeedButtonPressed"]
+[connection signal="pressed" from="Control/FastSpeedButton" to="." method="OnFastSpeedButtonPressed"]
+[connection signal="pressed" from="Control/LightningMcQueenSpeedButton" to="." method="OnLightningMcQueenSpeedButtonPressed"]
