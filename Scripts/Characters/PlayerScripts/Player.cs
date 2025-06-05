@@ -1,3 +1,4 @@
+using CarrotCottage.Scripts.Common;
 using CarrotCottage.Scripts.Components;
 using CarrotCottage.Scripts.Globals;
 using Godot;

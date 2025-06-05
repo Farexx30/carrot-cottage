@@ -41,22 +41,3 @@ public static class PlayerConstants
         public const string Watering = "Watering";
     }
 }
-
-public enum PlayerTools
-{
-    None,
-    Axe,
-    Hoe,
-    WateringCan,
-    CornSeeds,
-    CarrotSeeds,
-    CauliflowerSeeds,
-    TomatoSeeds,
-    EggplantSeeds,
-    LettuceSeeds,
-    WheatSeeds,
-    PumpkinSeeds,
-    ParsleySeeds,
-    RadishSeeds,
-    CucumberSeeds
-}

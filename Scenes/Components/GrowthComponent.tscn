@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbhubr8bu1lpy"]
+
+[ext_resource type="Script" uid="uid://d2we8l4d5yq60" path="res://Scripts/Components/GrowthComponent.cs" id="1_i5bt4"]
+
+[node name="GrowthComponent" type="Node"]
+script = ExtResource("1_i5bt4")

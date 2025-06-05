@@ -11,6 +11,15 @@ public partial class WateringState : NodeState
     [Export]
     public AnimatedSprite2D AnimatedSprite2D { get; set; } = default!;
 
+    [Export]
+    public CollisionShape2D HitComponentCollisionShape { get; set; } = default!;
+
+    public override void _Ready()
+    {
+        HitComponentCollisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+        HitComponentCollisionShape.Position = Vector2.Zero;
+    }
+
     public override void OnProcess(double delta)
     {
 
@@ -34,24 +43,31 @@ public partial class WateringState : NodeState
         if (Player.CurrentDirection == Vector2.Up)
         {
             AnimatedSprite2D.Play(PlayerConstants.Animations.WateringBack);
+            HitComponentCollisionShape.Position = new Vector2(3, -19);
         }
         else if (Player.CurrentDirection == Vector2.Down
                  || Player.CurrentDirection == Vector2.Zero)
         {
             AnimatedSprite2D.Play(PlayerConstants.Animations.WateringFront);
+            HitComponentCollisionShape.Position = new Vector2(-3, 3);
         }
         else if (Player.CurrentDirection == Vector2.Left)
         {
             AnimatedSprite2D.Play(PlayerConstants.Animations.WateringLeft);
+            HitComponentCollisionShape.Position = new Vector2(-8, -1);
         }
         else if (Player.CurrentDirection == Vector2.Right)
         {
             AnimatedSprite2D.Play(PlayerConstants.Animations.WateringRight);
+            HitComponentCollisionShape.Position = new Vector2(8, -1);
         }
+
+        HitComponentCollisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
     }
 
     public override void OnExit()
     {
         AnimatedSprite2D.Stop();
+        HitComponentCollisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
     }
 }

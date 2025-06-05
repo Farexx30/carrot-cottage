@@ -1283,10 +1283,11 @@ script = ExtResource("7_ov5rv")
 Player = NodePath("../..")
 AnimatedSprite2D = NodePath("../../AnimatedSprite2D")
 
-[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("Player", "AnimatedSprite2D")]
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("Player", "AnimatedSprite2D", "HitComponentCollisionShape")]
 script = ExtResource("8_xst4l")
 Player = NodePath("../..")
 AnimatedSprite2D = NodePath("../../AnimatedSprite2D")
+HitComponentCollisionShape = NodePath("../../HitComponent/HitComponentCollisionShape2D")
 
 [node name="HitComponent" parent="." instance=ExtResource("9_p3isv")]
 
