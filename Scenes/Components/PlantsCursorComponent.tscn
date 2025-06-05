@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxo0fy0wuj34h"]
+
+[ext_resource type="Script" uid="uid://cu8x3lr103710" path="res://Scripts/Components/PlantsCursorComponent.cs" id="1_h5pkq"]
+
+[node name="PlantsCursorComponent" type="Node"]
+script = ExtResource("1_h5pkq")

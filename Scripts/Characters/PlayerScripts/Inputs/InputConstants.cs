@@ -14,4 +14,5 @@ public static class InputConstants
     public const string WalkRight = "WalkRight";
     public const string Hit = "Hit";
     public const string ReleaseTool = "ReleaseTool";
+    public const string RemoveObject = "RemoveObject";
 }
