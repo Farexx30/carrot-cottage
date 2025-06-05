@@ -26,43 +26,60 @@ public partial class GrowthComponent : Node
 
     private DayAndNightCycleManager _dayAndNightCycleManager = default!;
 
+    private int? _startHour;
+    private int? _startMinute;
     private int? _startDay;
 
     public override void _Ready()
     {
         _dayAndNightCycleManager = GetNode<DayAndNightCycleManager>(GlobalNames.DayAndNightCycleManager);
 
-        _dayAndNightCycleManager.TimeTickDay += OnTimeTickDay;
+        _dayAndNightCycleManager.TimeTick += OnTimeTick;
     }
 
     public override void _ExitTree()
     {
-        _dayAndNightCycleManager.TimeTickDay -= OnTimeTickDay;
+        _dayAndNightCycleManager.TimeTick -= OnTimeTick;
     }
 
-    private void OnTimeTickDay(int day)
+    private void OnTimeTick(int day, int hour, int minute)
     {
         if (IsWatered)
         {
             _startDay ??= day;
 
-            UpdateGrowthState(_startDay.Value, day);
-            UpdateHarvestableState(_startDay.Value, day);
-        }      
+            if (ShouldUpdateState(day, hour, minute))
+            {
+                UpdateGrowthState(currentDay: day);
+                UpdateHarvestableState(currentDay: day);
+            }
+
+            _startHour ??= hour;
+            _startMinute ??= minute;
+        }
     }
 
-    private void UpdateGrowthState(int startDay, int currentDay)
+    private bool ShouldUpdateState(int day, int hour, int minute)
+    {
+        return _startHour.HasValue
+            && _startMinute.HasValue
+            && day > _startDay!.Value 
+            && ((hour == _startHour.Value && minute >= _startMinute.Value)               
+                || hour > _startHour.Value)
+            && (hour <= _startHour.Value + 1); //Added
+    }
+
+    private void UpdateGrowthState(int currentDay)
     {
         if (CurrentGrowthState == GrowthStates.Mature)
         {
             return;
         }
 
-        var growthDaysPassed = (currentDay - startDay) % GrowthStatesCount;
-        var stateIndex = growthDaysPassed % GrowthStatesCount + 1;
+        var stateIndex = (currentDay - _startDay!.Value) % GrowthStatesCount;
 
         CurrentGrowthState = (GrowthStates)stateIndex;
-        GD.Print($"Current Growth State name: {CurrentGrowthState}, Current Growth state index: {stateIndex}.");
+        GD.Print($"{GetParent().Name} - Current Growth State name: {CurrentGrowthState}, Current Growth state index: {stateIndex}.");
 
         if (CurrentGrowthState == GrowthStates.Mature)
         {
@@ -70,16 +87,16 @@ public partial class GrowthComponent : Node
         }
     }
 
-    private void UpdateHarvestableState(int startDay, int currentDay)
+    private void UpdateHarvestableState(int currentDay)
     {
         if (CurrentGrowthState == GrowthStates.Harvestable)
         {
             return;
         }
 
-        var daysPassed = (currentDay - startDay) % DaysUntilHarvest;
+        var daysPassed = currentDay - _startDay!.Value;
 
-        if (daysPassed == DaysUntilHarvest - 1)
+        if (daysPassed == DaysUntilHarvest)
         {
             CurrentGrowthState = GrowthStates.Harvestable;
             EmitSignal(SignalName.PlantHarvestable);
