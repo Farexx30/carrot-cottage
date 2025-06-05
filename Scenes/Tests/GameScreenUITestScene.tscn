@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://027eya7eqkde"]
+[gd_scene load_steps=8 format=4 uid="uid://027eya7eqkde"]
 
+[ext_resource type="PackedScene" uid="uid://bd185diblk1pd" path="res://Scenes/Components/DayAndNightCycleComponent.tscn" id="1_lr6q4"]
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="1_uof7o"]
 [ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="2_eab04"]
 [ext_resource type="PackedScene" uid="uid://d0ldjtghf20a5" path="res://Scenes/UI/GameScreen.tscn" id="3_jl2n0"]
@@ -13,6 +14,8 @@ shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 30.0
 
 [node name="DayAndNightCycleTestScene" type="Node2D"]
+
+[node name="DayAndNightCycleComponent" parent="." instance=ExtResource("1_lr6q4")]
 
 [node name="GameTileMap" type="Node2D" parent="."]
 

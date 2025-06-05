@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CarrotCottage"
-run/main_scene="uid://bite50dg18f6i"
+run/main_scene="uid://027eya7eqkde"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 run/layer_7=""
@@ -20,6 +20,7 @@ run/layer_7=""
 
 ToolsManager="*res://Scripts/Globals/ToolsManager.cs"
 InventoryManager="*res://Scripts/Globals/InventoryManager.cs"
+DayAndNightCycleManager="*res://Scripts/Globals/DayAndNightCycleManager.cs"
 
 [display]
 

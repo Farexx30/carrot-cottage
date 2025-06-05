@@ -10,4 +10,5 @@ public static class GlobalNames
 {
     public const string ToolsManager = "/root/ToolsManager";
     public const string InventoryManager = "/root/InventoryManager";
+    public const string DayAndNightCycleManager = "/root/DayAndNightCycleManager";
 }

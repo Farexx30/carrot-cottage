@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1ow5mqmo7ufc"]
+[gd_scene load_steps=5 format=3 uid="uid://b1ow5mqmo7ufc"]
 
 [ext_resource type="Theme" uid="uid://dh4sgc86nk71c" path="res://Scenes/UI/Themes/GameUITheme.tres" id="1_guafj"]
+[ext_resource type="Script" uid="uid://dvg142vpjdyf4" path="res://Scripts/UI/DayAndNightPanelScripts/DayAndNightPanel.cs" id="2_36knl"]
 [ext_resource type="Texture2D" uid="uid://bg2mtypbqckh2" path="res://Assets/UI/Sprite sheet for Basic Pack.png" id="2_085ef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36knl"]
@@ -11,6 +12,7 @@ region = Rect2(421, 34, 7, 12)
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_guafj")
+script = ExtResource("2_36knl")
 
 [node name="DayCounterPanel" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -26,7 +28,7 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="Label" type="Label" parent="DayCounterPanel/MarginContainer"]
+[node name="DayCounterLabel" type="Label" parent="DayCounterPanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"DayAndNightLabel"
@@ -47,11 +49,11 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="Label" type="Label" parent="ClockPanel/MarginContainer"]
+[node name="ClockLabel" type="Label" parent="ClockPanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"DayAndNightLabel"
-text = "12:00"
+text = "00:00"
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
@@ -166,3 +168,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_36knl")
+
+[connection signal="pressed" from="Control/RegularSpeedButton" to="." method="OnRegularSpeedButtonPressed"]
+[connection signal="pressed" from="Control/FastSpeedButton" to="." method="OnFastSpeedButtonPressed"]
+[connection signal="pressed" from="Control/LightningMcQueenSpeedButton" to="." method="OnLightningMcQueenSpeedButtonPressed"]
