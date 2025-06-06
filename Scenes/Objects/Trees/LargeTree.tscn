@@ -25,6 +25,7 @@ radius = 11.0
 height = 24.0
 
 [node name="LargeTree" type="Sprite2D"]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_mwe1k")
 position = Vector2(0, 5)
 texture = SubResource("AtlasTexture_praj0")

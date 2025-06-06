@@ -1,5 +1,6 @@
 using CarrotCottage.Scripts.Characters.PlayerScripts;
 using CarrotCottage.Scripts.Characters.PlayerScripts.Inputs;
+using CarrotCottage.Scripts.Common;
 using CarrotCottage.Scripts.Globals;
 using Godot;
 

@@ -11,7 +11,6 @@ public partial class DayAndNightCycleManager : Node
 
     public float GameSpeed { get; set; } = 1.0f;
     public int InitialDay { get; set; } = 1;
-
     public int InitialHour { get; set; } = 6; 
     public int InitialMinute { get; set; } = 0;
 
@@ -24,9 +23,6 @@ public partial class DayAndNightCycleManager : Node
 
     [Signal]
     public delegate void TimeTickEventHandler(int day, int hour, int minute);
-
-    [Signal]
-    public delegate void TimeTickDayEventHandler(int day);
 
     public override void _Ready()
     {
@@ -58,14 +54,9 @@ public partial class DayAndNightCycleManager : Node
 
         if (_currentMinute != minute)
         {
+            // GD.Print($"Hour: {hour}, Minute: {minute}");
             _currentMinute = minute;
             EmitSignal(SignalName.TimeTick, day, hour, minute);
-        }
-
-        if (_currentDay != day)
-        {
-            _currentDay = day;
-            EmitSignal(SignalName.TimeTickDay, day);
         }
     }
 
