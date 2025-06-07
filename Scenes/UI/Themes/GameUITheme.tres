@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bg2mtypbqckh2" path="res://Assets/UI/Sprite sheet for Basic Pack.png" id="1_ahxgi"]
 [ext_resource type="FontVariation" uid="uid://bwcu5jn7rbj65" path="res://Assets/UI/Fonts/ZXPalmVariation.tres" id="2_qoglx"]
-[ext_resource type="FontFile" uid="uid://dbot7shygcxdx" path="res://Assets/UI/Fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_td6td"]
+[ext_resource type="FontFile" uid="uid://dk6cat4r8iefa" path="res://Assets/UI/Fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_td6td"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qoglx"]
 atlas = ExtResource("1_ahxgi")

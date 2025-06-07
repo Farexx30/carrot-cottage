@@ -16,19 +16,22 @@ y_sort_enabled = true
 script = ExtResource("1_s6yt1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
 texture = ExtResource("1_snk18")
+offset = Vector2(0, -5)
 hframes = 5
 vframes = 15
 frame = 20
 
 [node name="WateringParticlesComponent" parent="." instance=ExtResource("2_4by3g")]
+position = Vector2(0, 2)
 
 [node name="FloweringParticlesComponent" parent="." instance=ExtResource("3_s6yt1")]
+position = Vector2(0, 2)
 
 [node name="GrowthComponent" parent="." instance=ExtResource("4_aib35")]
 
 [node name="HurtComponent" parent="." instance=ExtResource("5_yqnc6")]
+position = Vector2(0, 3)
 Tool = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]

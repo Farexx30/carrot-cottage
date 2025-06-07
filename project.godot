@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CarrotCottage"
-run/main_scene="uid://cb0hcrubtp7vm"
+run/main_scene="uid://d2pn86bi3qhs3"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 run/layer_7=""
@@ -49,6 +49,7 @@ folder_colors={
 [global_group]
 
 Player=""
+navigation_polygon_source_geometry_group=""
 
 [input]
 

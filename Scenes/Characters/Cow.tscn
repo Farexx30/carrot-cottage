@@ -125,6 +125,7 @@ shape = SubResource("CapsuleShape2D_xlvei")
 navigation_layers = 2
 path_postprocessing = 1
 radius = 12.0
+debug_enabled = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("InitialNodeState")]
 script = ExtResource("2_v4xak")
