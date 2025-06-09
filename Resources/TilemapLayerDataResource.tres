@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://qpdlf73p5baj"]
+
+[ext_resource type="Script" uid="uid://cpia4r82104ay" path="res://Scripts/Resources/TileMapLayerDataResource.cs" id="1_i8pdy"]
+
+[resource]
+script = ExtResource("1_i8pdy")
