@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3fqf3nheeslu"]
+[gd_scene load_steps=10 format=3 uid="uid://d3fqf3nheeslu"]
 
 [ext_resource type="Script" uid="uid://c6n1kgxmuxcap" path="res://Scripts/Objects/Plants/Wheat.cs" id="1_kw33n"]
 [ext_resource type="Texture2D" uid="uid://d0ymyiug21ijv" path="res://Assets/Objects/Farming Plants.png" id="1_n7be0"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://klabq3lsdeik" path="res://Scenes/Components/WateringParticlesComponent.tscn" id="3_0b4kj"]
 [ext_resource type="PackedScene" uid="uid://8of5uceyhfl2" path="res://Scenes/Components/FloweringParticlesComponent.tscn" id="3_qvynv"]
 [ext_resource type="PackedScene" uid="uid://cbhubr8bu1lpy" path="res://Scenes/Components/GrowthComponent.tscn" id="5_p2bpk"]
+[ext_resource type="PackedScene" uid="uid://bwsi5tg3it5f6" path="res://Scenes/Components/SaveDataComponent.tscn" id="7_qninp"]
+[ext_resource type="Resource" uid="uid://bth4147y1ebnw" path="res://Resources/SceneDataResource.tres" id="8_pc8j1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qvynv"]
 radius = 4.0
@@ -40,3 +42,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qvynv")
 
 [node name="GrowthComponent" parent="." instance=ExtResource("5_p2bpk")]
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("7_qninp")]
+SaveDataResource = ExtResource("8_pc8j1")
