@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://dm1stiw5cmsxr"]
+
+[ext_resource type="Shader" uid="uid://brool5fvilv5m" path="res://Shaders/ColorModification.gdshader" id="1_hir2y"]
+[ext_resource type="Script" uid="uid://dkf828mwoyb2k" path="res://Scripts/Characters/GuideScripts/Guide.cs" id="1_w8tgv"]
+[ext_resource type="Texture2D" uid="uid://citftwmsosjng" path="res://Assets/Characters/Premium Charakter Spritesheet.png" id="1_y32dc"]
+[ext_resource type="PackedScene" uid="uid://1xeew504miiq" path="res://Scenes/Components/InteractableComponent.tscn" id="3_htltj"]
+[ext_resource type="PackedScene" uid="uid://cy46ktyhbhol2" path="res://Scenes/Components/InteractableLabelComponent.tscn" id="4_jspm0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hir2y"]
+shader = ExtResource("1_hir2y")
+shader_parameter/original_color_1 = Color(0.360784, 0.305882, 0.572549, 1)
+shader_parameter/original_color_2 = Color(0.462745, 0.427451, 0.666667, 1)
+shader_parameter/original_color_3 = Color(0.866667, 0.835294, 0.870588, 1)
+shader_parameter/replace_color_1 = Color(0.679632, 0.417605, 0.21966, 1)
+shader_parameter/replace_color_2 = Color(0.784314, 0.52549, 0.266667, 1)
+shader_parameter/replace_color_3 = Color(0.924024, 0.676209, 0.504606, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hir2y"]
+atlas = ExtResource("1_y32dc")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htltj"]
+atlas = ExtResource("1_y32dc")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jspm0"]
+atlas = ExtResource("1_y32dc")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8tgv"]
+atlas = ExtResource("1_y32dc")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhnc2"]
+atlas = ExtResource("1_y32dc")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htrkq"]
+atlas = ExtResource("1_y32dc")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvlyn"]
+atlas = ExtResource("1_y32dc")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ce3"]
+atlas = ExtResource("1_y32dc")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aekil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hir2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htltj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jspm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8tgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhnc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htrkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvlyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2ce3")
+}],
+"loop": true,
+"name": &"IdleFront",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htltj"]
+radius = 20.0
+
+[node name="Guide" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_w8tgv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_hir2y")
+sprite_frames = SubResource("SpriteFrames_aekil")
+animation = &"IdleFront"
+autoplay = "IdleFront"
+frame_progress = 0.735748
+offset = Vector2(0, -8)
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_htltj")]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+shape = SubResource("CircleShape2D_htltj")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_jspm0")]
+z_index = 1
+offset_left = -28.0
+offset_top = -32.0
+offset_right = -10.0
+offset_bottom = -14.0
