@@ -1,0 +1,97 @@
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://dr6skc6awwwtm"]
+
+[ext_resource type="Texture2D" uid="uid://bg2mtypbqckh2" path="res://Assets/UI/Sprite sheet for Basic Pack.png" id="1_vugoc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aqmv0"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-e1e04fae3c1cb4fb7d8c5d2d4763ee83.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4nss"]
+atlas = SubResource("CompressedTexture2D_aqmv0")
+region = Rect2(59, 11, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xisxp"]
+texture = SubResource("AtlasTexture_p4nss")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17u10"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-e1e04fae3c1cb4fb7d8c5d2d4763ee83.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f7au"]
+atlas = SubResource("CompressedTexture2D_17u10")
+region = Rect2(59, 59, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wdm6"]
+texture = SubResource("AtlasTexture_4f7au")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fxt5g"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-e1e04fae3c1cb4fb7d8c5d2d4763ee83.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0je1j"]
+atlas = SubResource("CompressedTexture2D_fxt5g")
+region = Rect2(59, 59, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0l3h4"]
+texture = SubResource("AtlasTexture_0je1j")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vugoc"]
+atlas = ExtResource("1_vugoc")
+region = Rect2(59, 155, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqmv0"]
+texture = SubResource("AtlasTexture_vugoc")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vugoc"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-e1e04fae3c1cb4fb7d8c5d2d4763ee83.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppvok"]
+atlas = SubResource("CompressedTexture2D_vugoc")
+region = Rect2(59, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4nss"]
+texture = SubResource("AtlasTexture_ppvok")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqmv0"]
+atlas = ExtResource("1_vugoc")
+region = Rect2(275, 212, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppvok"]
+texture = SubResource("AtlasTexture_aqmv0")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_xisxp")
+Button/styles/focus = SubResource("StyleBoxTexture_5wdm6")
+Button/styles/hover = SubResource("StyleBoxTexture_0l3h4")
+Button/styles/normal = SubResource("StyleBoxTexture_aqmv0")
+Button/styles/pressed = SubResource("StyleBoxTexture_p4nss")
+CharacterNameText/base_type = &"RichTextLabel"
+CharacterNameText/font_sizes/normal_font_size = 14
+DialogueText/base_type = &"RichTextLabel"
+DialogueText/font_sizes/normal_font_size = 12
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_ppvok")
