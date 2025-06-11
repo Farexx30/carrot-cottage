@@ -8,12 +8,12 @@ public partial class EmotesPanel : Panel
     private AnimatedSprite2D _animatedSprite2D = default!;
     private Timer _emoteIdleTimer = default!;
 
-    private readonly string[] _idleEmotes =
+    private readonly StringName[] _idleEmotes =
     [
-        EmotesPanelConstants.Animations.Emote1Idle,
-        EmotesPanelConstants.Animations.Emote2Smile,
-        EmotesPanelConstants.Animations.Emote3EarWave,
-        EmotesPanelConstants.Animations.Emote4Blink
+        EmotesPanelConstants.Animations.Idle,
+        EmotesPanelConstants.Animations.Smile,
+        EmotesPanelConstants.Animations.EarWave,
+        EmotesPanelConstants.Animations.Blink
     ];
 
     public override void _Ready()
@@ -21,7 +21,17 @@ public partial class EmotesPanel : Panel
         _animatedSprite2D = GetNode<AnimatedSprite2D>(EmotesPanelConstants.Nodes.AnimatedSprite2D);
         _emoteIdleTimer = GetNode<Timer>(EmotesPanelConstants.Nodes.EmoteIdleTimer);
 
-        _animatedSprite2D.Play(EmotesPanelConstants.Animations.Emote1Idle);
+        _animatedSprite2D.Play(EmotesPanelConstants.Animations.Idle);
+    }
+
+    public void PlayEmote(StringName emoteName)
+    {
+        if (_animatedSprite2D.Animation == emoteName)
+        {
+            return;
+        }
+
+        _animatedSprite2D.Play(emoteName);
     }
 
     public void OnEmoteIdleTimerTimeout()
@@ -29,6 +39,6 @@ public partial class EmotesPanel : Panel
         var index = GD.RandRange(0, _idleEmotes.Length - 1);
         var emoteName = _idleEmotes[index];
 
-        _animatedSprite2D.Play(emoteName);
+        PlayEmote(emoteName);
     }
 }

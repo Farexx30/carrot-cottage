@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bmbx6xemq80s5"]
+[gd_scene load_steps=10 format=4 uid="uid://bmbx6xemq80s5"]
 
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="1_njt4o"]
 [ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="2_u5bbx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/Shake.gdshader" id="5_rlmpq"]
 [ext_resource type="PackedScene" uid="uid://d3fqf3nheeslu" path="res://Scenes/Objects/Plants/Wheat.tscn" id="6_u5bbx"]
 [ext_resource type="PackedScene" uid="uid://b8pynwqqxyxnv" path="res://Scenes/Objects/Plants/Tomato.tscn" id="7_7xyah"]
+[ext_resource type="PackedScene" uid="uid://cttvyebri7ekw" path="res://Scenes/Components/EnableToolsPanelInTestSceneComponent.tscn" id="8_m082b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x053e"]
 resource_local_to_scene = true
@@ -50,3 +51,5 @@ position = Vector2(316, 268)
 
 [node name="Wheat2" parent="." instance=ExtResource("6_u5bbx")]
 position = Vector2(238, 253)
+
+[node name="EnableToolsPanelInTestSceneComponent" parent="." instance=ExtResource("8_m082b")]

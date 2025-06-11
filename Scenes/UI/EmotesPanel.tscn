@@ -4,25 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://coh7pbatg25o4" path="res://Assets/UI/Teemo Basic emote animations sprite sheet.png" id="2_n5awq"]
 [ext_resource type="Script" uid="uid://5qw2kbraa8so" path="res://Scripts/UI/EmotesPanelScripts/EmotesPanel.cs" id="2_w2hrp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w2hrp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cnsb"]
 atlas = ExtResource("2_n5awq")
-region = Rect2(0, 352, 32, 32)
+region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3d84"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2usco"]
 atlas = ExtResource("2_n5awq")
-region = Rect2(32, 352, 32, 32)
+region = Rect2(64, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddr0d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6kqv"]
 atlas = ExtResource("2_n5awq")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tyf4j"]
-atlas = ExtResource("2_n5awq")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5a5p3"]
-atlas = ExtResource("2_n5awq")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w74hm"]
 atlas = ExtResource("2_n5awq")
@@ -44,17 +36,17 @@ region = Rect2(96, 64, 32, 32)
 atlas = ExtResource("2_n5awq")
 region = Rect2(128, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4cnsb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a60vy"]
 atlas = ExtResource("2_n5awq")
-region = Rect2(0, 96, 32, 32)
+region = Rect2(0, 192, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2usco"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq3ut"]
 atlas = ExtResource("2_n5awq")
-region = Rect2(64, 96, 32, 32)
+region = Rect2(32, 192, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b6kqv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddr0d"]
 atlas = ExtResource("2_n5awq")
-region = Rect2(96, 96, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epxxr"]
 atlas = ExtResource("2_n5awq")
@@ -64,66 +56,24 @@ region = Rect2(0, 160, 32, 32)
 atlas = ExtResource("2_n5awq")
 region = Rect2(32, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a60vy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyf4j"]
 atlas = ExtResource("2_n5awq")
-region = Rect2(0, 192, 32, 32)
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yq3ut"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a5p3"]
 atlas = ExtResource("2_n5awq")
-region = Rect2(32, 192, 32, 32)
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2hrp"]
+atlas = ExtResource("2_n5awq")
+region = Rect2(0, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3d84"]
+atlas = ExtResource("2_n5awq")
+region = Rect2(32, 352, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n5awq"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w2hrp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y3d84")
-}],
-"loop": true,
-"name": &"Emote12Talking",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ddr0d")
-}],
-"loop": true,
-"name": &"Emote1Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tyf4j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5a5p3")
-}],
-"loop": true,
-"name": &"Emote2Smile",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w74hm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7j62x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wkbqo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kctxc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2cgek")
-}],
-"loop": true,
-"name": &"Emote3EarWave",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4cnsb")
@@ -159,18 +109,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_b6kqv")
 }],
 "loop": true,
-"name": &"Emote4Blink",
+"name": &"Blink",
 "speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_epxxr")
+"texture": SubResource("AtlasTexture_w74hm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_enxu2")
+"texture": SubResource("AtlasTexture_7j62x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkbqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kctxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cgek")
 }],
 "loop": true,
-"name": &"Emote6Kiss",
+"name": &"EarWave",
 "speed": 5.0
 }, {
 "frames": [{
@@ -181,7 +140,48 @@ animations = [{
 "texture": SubResource("AtlasTexture_yq3ut")
 }],
 "loop": true,
-"name": &"Emote7Excited",
+"name": &"Excited",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddr0d")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epxxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enxu2")
+}],
+"loop": true,
+"name": &"Kiss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyf4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a5p3")
+}],
+"loop": true,
+"name": &"Smile",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2hrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3d84")
+}],
+"loop": true,
+"name": &"Talking",
 "speed": 5.0
 }]
 
@@ -213,8 +213,7 @@ grow_vertical = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Emote"]
 position = Vector2(20, 22)
 sprite_frames = SubResource("SpriteFrames_n5awq")
-animation = &"Emote1Idle"
-frame_progress = 0.468127
+animation = &"Excited"
 
 [node name="EmoteIdleTimer" type="Timer" parent="."]
 wait_time = 5.0

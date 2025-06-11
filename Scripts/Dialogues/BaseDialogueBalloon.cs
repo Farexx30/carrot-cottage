@@ -135,7 +135,7 @@ public partial class BaseDialogueBalloon : CanvasLayer
     }
 
 
-    public async void Start(Resource dialogueResource, string title, Array<Variant>? extraGameStates = null)
+    public virtual async void Start(Resource dialogueResource, string title, Array<Variant>? extraGameStates = null)
     {
         temporaryGameStates = new Array<Variant> { this } + (extraGameStates ?? []);
         isWaitingForInput = false;
@@ -145,7 +145,7 @@ public partial class BaseDialogueBalloon : CanvasLayer
     }
 
 
-    public async void Next(string nextId)
+    public virtual async void Next(string nextId)
     {
         DialogueLine = (await DialogueManager.GetNextDialogueLine(resource, nextId, temporaryGameStates))!;
     }

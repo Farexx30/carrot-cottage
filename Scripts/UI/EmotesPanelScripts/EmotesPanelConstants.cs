@@ -8,6 +8,8 @@ namespace CarrotCottage.Scripts.UI.EmotesPanelScripts;
 
 public static class EmotesPanelConstants
 {
+    public const string Path = "Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/EmotesPanel";
+
     public static class Nodes
     {         
         public const string AnimatedSprite2D = "Emote/AnimatedSprite2D";
@@ -16,9 +18,10 @@ public static class EmotesPanelConstants
 
     public static class Animations
     {
-        public const string Emote1Idle = "Emote1Idle";
-        public const string Emote2Smile = "Emote2Smile";
-        public const string Emote3EarWave = "Emote3EarWave";
-        public const string Emote4Blink = "Emote4Blink";
+        public const string Idle = "Idle";
+        public const string Smile = "Smile";
+        public const string EarWave = "EarWave";
+        public const string Blink = "Blink";
+        public const string Talking = "Talking";
     }
 }
