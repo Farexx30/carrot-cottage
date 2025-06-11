@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CarrotCottage"
-run/main_scene="uid://d2pn86bi3qhs3"
+run/main_scene="uid://cab4uqioo8h8c"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 run/layer_7=""
@@ -22,6 +22,12 @@ ToolsManager="*res://Scripts/Globals/ToolsManager.cs"
 InventoryManager="*res://Scripts/Globals/InventoryManager.cs"
 DayAndNightCycleManager="*res://Scripts/Globals/DayAndNightCycleManager.cs"
 SaveGameManager="*res://Scripts/Globals/SaveGameManager.cs"
+DialogueManager="*res://Addons/dialogue_manager/dialogue_manager.gd"
+CarrotCottageDialogueManager="*res://Scripts/Globals/CarrotCottageDialogueManager.cs"
+
+[dialogue_manager]
+
+runtime/advanced/uses_dotnet=true
 
 [display]
 
@@ -36,10 +42,15 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="CarrotCottage"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
 "res://Assets/": "orange",
+"res://Dialogues/": "red",
 "res://Properties/": "blue",
 "res://Resources/": "gray",
 "res://Scenes/": "green",
@@ -100,6 +111,15 @@ SaveGame={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+ShowDialogue={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":69,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res://Dialogues/GuideDialogue.dialogue")
 
 [layer_names]
 

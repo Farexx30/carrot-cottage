@@ -12,4 +12,5 @@ public static class GlobalNames
     public const string InventoryManager = "/root/InventoryManager";
     public const string DayAndNightCycleManager = "/root/DayAndNightCycleManager";
     public const string SaveGameManager = "/root/SaveGameManager";
+    public const string DialogueManagerx = "/root/CarrotCottageDialogueManager";
 }

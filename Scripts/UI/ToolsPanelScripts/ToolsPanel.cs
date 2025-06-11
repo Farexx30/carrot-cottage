@@ -3,6 +3,8 @@ using CarrotCottage.Scripts.Characters.PlayerScripts.Inputs;
 using CarrotCottage.Scripts.Common;
 using CarrotCottage.Scripts.Globals;
 using Godot;
+using System;
+using System.Collections.Generic;
 
 namespace CarrotCottage.Scripts.UI.ToolsPanelScripts;
 
@@ -18,6 +20,8 @@ public partial class ToolsPanel : PanelContainer
 
     private Button? _selectedToolButton;
 
+    private readonly Dictionary<PlayerTools, Button> _toolButtons = [];
+
     public override void _Ready()
     {
         _toolsManager = GetNode<ToolsManager>(GlobalNames.ToolsManager);
@@ -27,6 +31,32 @@ public partial class ToolsPanel : PanelContainer
         _wateringCanTool = GetNode<Button>(ToolsPanelConstants.Nodes.WateringCanTool);
         _wheatSeedsTool = GetNode<Button>(ToolsPanelConstants.Nodes.WheatSeedsTool);
         _tomatoSeedsTool = GetNode<Button>(ToolsPanelConstants.Nodes.TomatoSeedsTool);
+
+        _toolButtons.Add(PlayerTools.Axe, _axeTool);
+        _toolButtons.Add(PlayerTools.Hoe, _hoeTool);
+        _toolButtons.Add(PlayerTools.WateringCan, _wateringCanTool);
+        _toolButtons.Add(PlayerTools.WheatSeeds, _wheatSeedsTool);
+        _toolButtons.Add(PlayerTools.TomatoSeeds, _tomatoSeedsTool);
+
+        foreach (var toolButton in _toolButtons)
+        {
+            if (toolButton.Key != PlayerTools.Axe)
+            {
+                toolButton.Value.Disabled = true;
+                toolButton.Value.FocusMode = FocusModeEnum.None;
+            }
+        }
+
+        _toolsManager.ToolEnabled += OnToolEnabled;
+    }
+
+    private void OnToolEnabled(PlayerTools tool)
+    {
+        if (_toolButtons.TryGetValue(tool, out var toolButton))
+        {
+            toolButton.Disabled = false;
+            toolButton.FocusMode = FocusModeEnum.All;
+        }
     }
 
     private void OnAxeToolPressed()
@@ -69,5 +99,10 @@ public partial class ToolsPanel : PanelContainer
             _selectedToolButton.ReleaseFocus();
             _selectedToolButton = null;
         }
-    } 
+    }
+
+    public override void _ExitTree()
+    {
+        _toolsManager.ToolEnabled -= OnToolEnabled;
+    }
 }

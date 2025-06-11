@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cb0hcrubtp7vm"]
+[gd_scene load_steps=17 format=4 uid="uid://cb0hcrubtp7vm"]
 
 [ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="1_ch4to"]
 [ext_resource type="PackedScene" uid="uid://bd185diblk1pd" path="res://Scenes/Components/DayAndNightCycleComponent.tscn" id="1_ql6my"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://w8pehdxdwcxa" path="res://Scenes/Components/SaveLevelDataComponent.tscn" id="9_1u1mb"]
 [ext_resource type="Script" uid="uid://boa5hjv7ssj02" path="res://Scripts/Components/SaveLevelDataComponent.cs" id="10_spog0"]
 [ext_resource type="PackedScene" uid="uid://d3fqf3nheeslu" path="res://Scenes/Objects/Plants/Wheat.tscn" id="12_a3dpb"]
+[ext_resource type="PackedScene" uid="uid://cttvyebri7ekw" path="res://Scenes/Components/EnableToolsPanelInTestSceneComponent.tscn" id="15_6xa4w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x053e"]
 resource_local_to_scene = true
@@ -71,3 +72,5 @@ position = Vector2(263, 238)
 
 [node name="Wheat" parent="." instance=ExtResource("12_a3dpb")]
 position = Vector2(327, 257)
+
+[node name="EnableToolsPanelInTestSceneComponent" parent="." instance=ExtResource("15_6xa4w")]

@@ -1,0 +1,12 @@
+~ start
+Ginger: [[Hi|Hello|Howdy]], nice to meet you.
+Ginger: Welcome to your new farm.
+Ginger: As you can see the cows and chickens are hungry.
+Ginger: You need to grow some plants to feed them.
+Ginger: Here are some seeds to grow them.
+- Take plant seeds
+	Oregano: Yeah, I can grow plants.
+	do CarrotCottageDialogueManager.GiveSeeds()
+- No, I don't want them
+	Oregano: I'm not ready to grow my farm yet.	
+=> END

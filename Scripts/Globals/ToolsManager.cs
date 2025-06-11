@@ -11,6 +11,9 @@ public partial class ToolsManager : Node
     [Signal]
     public delegate void ToolChangedEventHandler(PlayerTools newTool);
 
+    [Signal]
+    public delegate void ToolEnabledEventHandler(PlayerTools tool);
+
     public void ChangeTool(PlayerTools tool)
     {
         if (CurrentTool == tool)
@@ -20,5 +23,10 @@ public partial class ToolsManager : Node
 
         EmitSignal(SignalName.ToolChanged, (int)tool);
         CurrentTool = tool;
+    }
+
+    public void EnableTool(PlayerTools tool)
+    {
+        EmitSignal(SignalName.ToolEnabled, (int)tool);
     }
 }
