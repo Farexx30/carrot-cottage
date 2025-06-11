@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck5pmdnhqc260"]
+[gd_scene load_steps=6 format=3 uid="uid://ck5pmdnhqc260"]
 
 [ext_resource type="Script" uid="uid://d02idtom7whss" path="res://Scripts/Dialogues/DialogueBalloon.cs" id="1_bt7pw"]
 [ext_resource type="Theme" uid="uid://dr6skc6awwwtm" path="res://Resources/DialogueBalloonTheme.tres" id="2_oxh0n"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://Addons/dialogue_manager/dialogue_label.tscn" id="2_xpikw"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://Addons/dialogue_manager/dialogue_responses_menu.gd" id="3_r3pxk"]
+[ext_resource type="PackedScene" uid="uid://cxgd4hurx3c2k" path="res://Scenes/UI/EmotesPanel.tscn" id="4_ede0l"]
 
 [node name="DialogueBalloon" type="CanvasLayer"]
 layer = 100
@@ -27,7 +28,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -210.0
-offset_top = -98.0
+offset_top = -419.0
 offset_right = 210.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -36,15 +37,26 @@ grow_vertical = 0
 clip_children = 2
 custom_minimum_size = Vector2(400, 70)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="EmotesPanel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_ede0l")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
@@ -55,7 +67,7 @@ text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_xpikw")]
+[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_xpikw")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

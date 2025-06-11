@@ -7,7 +7,7 @@ load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-e1e04fae3c1cb
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4nss"]
 atlas = SubResource("CompressedTexture2D_aqmv0")
-region = Rect2(59, 11, 26, 26)
+region = Rect2(59, 59, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xisxp"]
 texture = SubResource("AtlasTexture_p4nss")

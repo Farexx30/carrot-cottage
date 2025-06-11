@@ -1,11 +1,7 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Ginger: [[Hi|Hello|Howdy]], nice to meet you.
+Ginger: Welcome to your new farm.
+Ginger: As you can see the cows and chickens are hungry.
+Ginger: You need to grow some plants to feed them.
+Ginger: Here are some seeds to grow them.
 => END
