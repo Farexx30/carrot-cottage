@@ -23,7 +23,7 @@ public partial class Guide : Node2D
 
     public override void _Ready()
     {
-        _dialogueManager = GetNode<CarrotCottageDialogueManager>(GlobalNames.DialogueManagerx);
+        _dialogueManager = GetNode<CarrotCottageDialogueManager>(GlobalNames.DialogueManager);
         _dialogueManager.GivePlantSeeds += OnGivePlantSeeds;
 
         _toolsManager = GetNode<ToolsManager>(GlobalNames.ToolsManager);

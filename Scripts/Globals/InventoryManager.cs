@@ -24,4 +24,14 @@ public partial class InventoryManager : Node
 
         EmitSignal(SignalName.InventoryChanged, collectableName);
     }
+
+    public void RemoveCollectable(StringName collectableName, int quantity)
+    {
+        if (Inventory.TryGetValue(collectableName, out int value) && value > 0)
+        {
+            Inventory[collectableName] = value - quantity;
+            GD.Print($"{quantity} {collectableName} removed from inventory. Current count: {Inventory[collectableName]}");
+            EmitSignal(SignalName.InventoryChanged, collectableName);
+        }
+    }
 }

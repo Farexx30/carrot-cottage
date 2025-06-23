@@ -1,9 +1,11 @@
 using CarrotCottage.Scripts.Characters.PlayerScripts.Inputs;
 using CarrotCottage.Scripts.Components;
 using CarrotCottage.Scripts.Dialogues;
+using CarrotCottage.Scripts.Globals;
 using Godot;
 using Godot.Collections;
 using System;
+using System.Threading.Tasks;
 
 namespace CarrotCottage.Scripts.Objects.ChestScripts;
 
@@ -26,6 +28,10 @@ public partial class Chest : Node2D
     [Export]
     public Array<PackedScene> OutputRewardScenes { get; set; } = [];
 
+
+    private CarrotCottageDialogueManager _dialogueManager = default!;
+    private InventoryManager _inventoryManager = default!;
+
     private InteractableComponent _interactableComponent = default!; 
     private Control _interactableLabelComponent = default!; 
     private FeedComponent _feedComponent = default!; 
@@ -37,6 +43,8 @@ public partial class Chest : Node2D
 
     public override void _Ready()
     {
+        _dialogueManager = GetNode<CarrotCottageDialogueManager>(GlobalNames.DialogueManager);
+        _inventoryManager = GetNode<InventoryManager>(GlobalNames.InventoryManager);
         _interactableComponent = GetNode<InteractableComponent>(ChestConstants.Nodes.InteractableComponent);
         _interactableLabelComponent = GetNode<Control>(ChestConstants.Nodes.InteractableLabelComponent);
         _feedComponent = GetNode<FeedComponent>(ChestConstants.Nodes.FeedComponent);
@@ -45,9 +53,18 @@ public partial class Chest : Node2D
 
         _interactableLabelComponent.Visible = false;
 
+        _dialogueManager.FeedTheAnimals += OnFeedTheAnimals;
         _interactableComponent.InteractableActivated += OnInteractableActivated;
         _interactableComponent.InteractableDeactivated += OnInteractableDeactivated;
         _feedComponent.FoodReceived += OnFoodReceived;
+    }
+
+    private async void OnFeedTheAnimals()
+    {
+        if (_isPlayerInRange)
+        {
+            await TriggerFeedHarvest("Wheat", _wheatHarvestScene);
+        }
     }
 
     private void OnInteractableActivated()
@@ -71,6 +88,30 @@ public partial class Chest : Node2D
     private void OnFoodReceived(Area2D food)
     {
         throw new NotImplementedException();
+    }
+
+    private async Task TriggerFeedHarvest(StringName _inventoryItem, PackedScene scene)
+    {
+        if (!_inventoryManager.Inventory.TryGetValue(_inventoryItem, out var count))
+        {
+            return;
+        }
+
+        for (int i = 0; i < count; ++i)
+        {
+            var harvestInstance = scene.Instantiate<Node2D>();
+            harvestInstance.GlobalPosition = new Vector2(GlobalPosition.X, GlobalPosition.Y - FoodDropHeight);
+            GetTree().Root.AddChild(harvestInstance);
+
+            await ToSignal(GetTree().CreateTimer(0.8f), Timer.SignalName.Timeout);
+
+            var tween = GetTree().CreateTween();
+            tween.TweenProperty(harvestInstance, "position", GlobalPosition, 1.0f);
+            tween.TweenProperty(harvestInstance, "scale", new Vector2(0.5f, 0.5f), 1.0f);
+            tween.TweenCallback(Callable.From(harvestInstance.QueueFree));
+        }
+
+        _inventoryManager.RemoveCollectable(_inventoryItem, count);
     }
 
     public override void _UnhandledInput(InputEvent @event)

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://dgy8vmdcvtlbw"]
+[gd_scene load_steps=8 format=4 uid="uid://dgy8vmdcvtlbw"]
 
 [ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="1_lnijw"]
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="2_cjc50"]
 [ext_resource type="PackedScene" uid="uid://d0ldjtghf20a5" path="res://Scenes/UI/GameScreen.tscn" id="3_h83fv"]
 [ext_resource type="PackedScene" uid="uid://t02gegca0r41" path="res://Scenes/Objects/Chest.tscn" id="5_r83c1"]
+[ext_resource type="PackedScene" uid="uid://c0wfie65kvqyl" path="res://Scenes/Objects/Plants/WheatHarvest.tscn" id="6_gd1cq"]
+[ext_resource type="PackedScene" uid="uid://0qwjpgnopf5o" path="res://Scenes/Objects/Plants/TomatoHarvest.tscn" id="7_lnijw"]
 [ext_resource type="PackedScene" uid="uid://cttvyebri7ekw" path="res://Scenes/Components/EnableToolsPanelInTestSceneComponent.tscn" id="8_p2pu5"]
 
 [node name="ChestTestScene" type="Node2D"]
@@ -36,3 +38,23 @@ InteractStartCommand = &"ForCowPastureStart"
 [node name="ChickenChest" parent="." instance=ExtResource("5_r83c1")]
 position = Vector2(313, 205)
 InteractStartCommand = &"ForChickenPastureStart"
+
+[node name="HarvestCollectables" type="Node2D" parent="."]
+
+[node name="TomatoHarvest" parent="HarvestCollectables" instance=ExtResource("7_lnijw")]
+position = Vector2(287, 284)
+
+[node name="WheatHarvest" parent="HarvestCollectables" instance=ExtResource("6_gd1cq")]
+position = Vector2(214, 267)
+
+[node name="WheatHarvest2" parent="HarvestCollectables" instance=ExtResource("6_gd1cq")]
+position = Vector2(332, 251)
+
+[node name="WheatHarvest3" parent="HarvestCollectables" instance=ExtResource("6_gd1cq")]
+position = Vector2(261, 266)
+
+[node name="TomatoHarvest2" parent="HarvestCollectables" instance=ExtResource("7_lnijw")]
+position = Vector2(228, 287)
+
+[node name="TomatoHarvest3" parent="HarvestCollectables" instance=ExtResource("7_lnijw")]
+position = Vector2(187, 259)
