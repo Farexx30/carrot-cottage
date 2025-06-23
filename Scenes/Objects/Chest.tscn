@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dkriofn3iknd8" path="res://Scenes/Components/FeedComponent.tscn" id="4_iqi6j"]
 [ext_resource type="PackedScene" uid="uid://cy46ktyhbhol2" path="res://Scenes/Components/InteractableLabelComponent.tscn" id="5_5bh85"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5q7g3"]
+radius = 1.0
+height = 14.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbqto"]
 atlas = ExtResource("2_mpsc5")
 region = Rect2(0, 0, 48, 48)
@@ -61,10 +65,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5q7g3"]
-radius = 1.0
-height = 14.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_djy8f"]
 radius = 17.0294
 
@@ -72,22 +72,20 @@ radius = 17.0294
 radius = 3.0
 height = 14.0
 
-[node name="Chest" type="Node2D"]
+[node name="Chest" type="StaticBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_7uk5o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5q7g3")
+debug_color = Color(0.949921, 0.0492964, 0.546315, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qy7t6")
 animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(0, -7)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_5q7g3")
-debug_color = Color(0.949921, 0.0492964, 0.546315, 0.42)
 
 [node name="InteractableComponent" parent="." instance=ExtResource("3_jh6lr")]
 position = Vector2(0, -6)

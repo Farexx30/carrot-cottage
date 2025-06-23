@@ -158,6 +158,7 @@ public partial class Chest : Node2D
 
     public override void _ExitTree()
     {
+        _dialogueManager.FeedTheAnimals -= OnFeedTheAnimals;
         _interactableComponent.InteractableActivated -= OnInteractableActivated;
         _interactableComponent.InteractableDeactivated -= OnInteractableDeactivated;
         _feedComponent.FoodReceived -= OnFoodReceived;

@@ -1,10 +1,15 @@
+using CarrotCottage.Scripts.Globals;
 using Godot;
+using System;
 using System.Collections.Generic;
 
 namespace CarrotCottage.Scripts.UI.EmotesPanelScripts;
 
 public partial class EmotesPanel : Panel
 {
+    private InventoryManager _inventoryManager = default!;
+    private CarrotCottageDialogueManager _dialogueManager = default!;
+
     private AnimatedSprite2D _animatedSprite2D = default!;
     private Timer _emoteIdleTimer = default!;
 
@@ -18,10 +23,26 @@ public partial class EmotesPanel : Panel
 
     public override void _Ready()
     {
+        _inventoryManager = GetNode<InventoryManager>(GlobalNames.InventoryManager);
+        _dialogueManager = GetNode<CarrotCottageDialogueManager>(GlobalNames.DialogueManager);
         _animatedSprite2D = GetNode<AnimatedSprite2D>(EmotesPanelConstants.Nodes.AnimatedSprite2D);
         _emoteIdleTimer = GetNode<Timer>(EmotesPanelConstants.Nodes.EmoteIdleTimer);
 
+        _inventoryManager.InventoryChanged += OnInventoryChanged;
+        _dialogueManager.FeedTheAnimals += OnFeedTheAnimals;
+
         _animatedSprite2D.Play(EmotesPanelConstants.Animations.Idle);
+    }
+
+    private void OnFeedTheAnimals()
+    {
+
+        PlayEmote(EmotesPanelConstants.Animations.Kiss);
+    }
+
+    private void OnInventoryChanged(StringName collectableKey)
+    {
+        PlayEmote(EmotesPanelConstants.Animations.Excited);
     }
 
     public void PlayEmote(StringName emoteName)
@@ -40,5 +61,11 @@ public partial class EmotesPanel : Panel
         var emoteName = _idleEmotes[index];
 
         PlayEmote(emoteName);
+    }
+
+    public override void _ExitTree()
+    {
+        _inventoryManager.InventoryChanged -= OnInventoryChanged;
+        _dialogueManager.FeedTheAnimals -= OnFeedTheAnimals;
     }
 }

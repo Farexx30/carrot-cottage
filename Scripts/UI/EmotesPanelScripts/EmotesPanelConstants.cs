@@ -23,5 +23,7 @@ public static class EmotesPanelConstants
         public const string EarWave = "EarWave";
         public const string Blink = "Blink";
         public const string Talking = "Talking";
+        public const string Excited = "Excited";
+        public const string Kiss = "Kiss";
     }
 }

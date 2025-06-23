@@ -48,6 +48,7 @@ InputRewardSceneName = &"Wheat"
 OutputRewardScenes = Array[PackedScene]([ExtResource("7_cjc50")])
 
 [node name="HarvestCollectables" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="TomatoHarvest" parent="HarvestCollectables" instance=ExtResource("7_lnijw")]
 position = Vector2(287, 284)
