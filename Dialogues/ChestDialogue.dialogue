@@ -1,0 +1,17 @@
+~ ForCowPastureStart
+Pasture Chest: [[Hi|Hello|Howdy]]
+Pasture Chest: Would you like to feed your cows?
+- Yes
+	Oregano: Yeah! Let's feed my cows.
+- No
+	Oregano: No, I don't need to feed them now. I have enough milk.
+=> END
+
+~ ForChickenPastureStart
+Pasture Chest: [[Hi|Hello|Howdy]]
+Pasture Chest: Would you like to feed your chickens?
+- Yes
+	Oregano: Yeah! Let's feed my chickens.
+- No
+	Oregano: No, I don't need to feed them now. I have enough eggs.
+=> END

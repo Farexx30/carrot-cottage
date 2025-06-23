@@ -8,6 +8,7 @@ atlas = ExtResource("1_s4irc")
 region = Rect2(519, 136, 18, 17)
 
 [node name="InteractableLabelComponent" type="Control"]
+z_index = 2
 y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 0

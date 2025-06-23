@@ -119,7 +119,7 @@ ShowDialogue={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res://Dialogues/GuideDialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res://Dialogues/GuideDialogue.dialogue", "res://Dialogues/ChestDialogue.dialogue")
 
 [layer_names]
 
@@ -132,6 +132,7 @@ locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res:
 2d_physics/layer_5="Objects"
 2d_physics/layer_6="Collectable"
 2d_physics/layer_7="Npc"
+2d_physics/layer_8="Food"
 
 [rendering]
 
