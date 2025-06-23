@@ -17,6 +17,7 @@ texture = SubResource("AtlasTexture_aqqfd")
 offset = Vector2(1, -4)
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_aqqfd")]
+collision_layer = 160
 CollectableName = &"Wheat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]

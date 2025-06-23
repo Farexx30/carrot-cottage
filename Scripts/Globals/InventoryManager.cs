@@ -25,7 +25,7 @@ public partial class InventoryManager : Node
         EmitSignal(SignalName.InventoryChanged, collectableName);
     }
 
-    public void RemoveCollectable(StringName collectableName, int quantity)
+    public void RemoveCollectable(StringName collectableName, int quantity = 1)
     {
         if (Inventory.TryGetValue(collectableName, out int value) && value > 0)
         {

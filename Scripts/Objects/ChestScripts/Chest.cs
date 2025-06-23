@@ -13,9 +13,6 @@ public partial class Chest : Node2D
 {
     private readonly PackedScene _dialogueBalloonScene = GD.Load<PackedScene>("res://Scenes/Dialogues/DialogueBalloon.tscn");
 
-    private readonly PackedScene _wheatHarvestScene = GD.Load<PackedScene>("res://Scenes/Objects/Plants/WheatHarvest.tscn");
-    private readonly PackedScene _tomatoHarvestScene = GD.Load<PackedScene>("res://Scenes/Objects/Plants/WheatHarvest.tscn");
-
     [Export]
     public StringName InteractStartCommand { get; set; } = default!;
 
@@ -24,6 +21,12 @@ public partial class Chest : Node2D
 
     [Export]
     public int RewardOutputRadius { get; set; } = 20;
+
+    [Export]
+    public PackedScene InputRewardScene { get; set; } = default!;
+
+    [Export]
+    public StringName InputRewardSceneName { get; set; } = default!;
 
     [Export]
     public Array<PackedScene> OutputRewardScenes { get; set; } = [];
@@ -63,7 +66,7 @@ public partial class Chest : Node2D
     {
         if (_isPlayerInRange)
         {
-            await TriggerFeedHarvest("Wheat", _wheatHarvestScene);
+            await TriggerFeedHarvest(InputRewardSceneName, InputRewardScene);
         }
     }
 
@@ -87,7 +90,7 @@ public partial class Chest : Node2D
 
     private void OnFoodReceived(Area2D food)
     {
-        throw new NotImplementedException();
+        CallDeferred(nameof(AddRewardScene));
     }
 
     private async Task TriggerFeedHarvest(StringName _inventoryItem, PackedScene scene)
@@ -109,9 +112,33 @@ public partial class Chest : Node2D
             tween.TweenProperty(harvestInstance, "position", GlobalPosition, 1.0f);
             tween.TweenProperty(harvestInstance, "scale", new Vector2(0.5f, 0.5f), 1.0f);
             tween.TweenCallback(Callable.From(harvestInstance.QueueFree));
-        }
 
-        _inventoryManager.RemoveCollectable(_inventoryItem, count);
+            _inventoryManager.RemoveCollectable(_inventoryItem);
+        }
+    }
+
+    private void AddRewardScene()
+    {
+        foreach(var scene in OutputRewardScenes)
+        {
+            var rewardInstance = scene.Instantiate<Node2D>();
+
+            var rewardPosition = GetRandomPositionInCircle(_rewardMarker2D.GlobalPosition, RewardOutputRadius);
+            rewardInstance.GlobalPosition = rewardPosition;
+            GetTree().Root.AddChild(rewardInstance);
+        }
+    }
+
+    private Vector2I GetRandomPositionInCircle(Vector2 center, int r)
+    {
+        var angle = GD.Randf() * Math.Tau;
+
+        var distanceFromCenter = Math.Sqrt(GD.Randf()) * r;
+
+        var x = center.X + distanceFromCenter * Math.Cos(angle);
+        var y = center.Y + distanceFromCenter * Math.Sin(angle);
+
+        return new Vector2I((int)x, (int)y);
     }
 
     public override void _UnhandledInput(InputEvent @event)
