@@ -1,4 +1,4 @@
-~ ForCowPastureStart
+~ CowHouseStart
 Pasture Chest: [[Hi|Hello|Howdy]]
 Pasture Chest: Would you like to feed your cows?
 - Yes
@@ -8,7 +8,7 @@ Pasture Chest: Would you like to feed your cows?
 	Oregano: No, I don't need to feed them now. I have enough milk.
 => END
 
-~ ForChickenPastureStart
+~ ChickenHouseStart
 Pasture Chest: [[Hi|Hello|Howdy]]
 Pasture Chest: Would you like to feed your chickens?
 - Yes

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarrotCottage.Scripts.Objects.ChestScripts;
+namespace CarrotCottage.Scripts.Objects.AnimalHouseScripts;
 
-public static class ChestConstants
+public static class BaseAnimalHouseConstants
 {
     public static class Nodes
     {
@@ -16,11 +16,5 @@ public static class ChestConstants
         public const string FeedComponent = "FeedComponent";
         public const string AnimatedSprite2D = "AnimatedSprite2D";
         public const string RewardMarker2D = "RewardMarker2D";
-    }
-
-    public static class Animations
-    {
-        public const string Idle = "Idle";
-        public const string OpeningOrClosing = "OpeningOrClosing";
     }
 }

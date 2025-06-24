@@ -7,9 +7,9 @@ using Godot.Collections;
 using System;
 using System.Threading.Tasks;
 
-namespace CarrotCottage.Scripts.Objects.ChestScripts;
+namespace CarrotCottage.Scripts.Objects.AnimalHouseScripts;
 
-public partial class Chest : Node2D
+public partial class BaseAnimalHouse : Node2D
 {
     private readonly PackedScene _dialogueBalloonScene = GD.Load<PackedScene>("res://Scenes/Dialogues/DialogueBalloon.tscn");
 
@@ -20,7 +20,7 @@ public partial class Chest : Node2D
     public int FoodDropHeight { get; set; } = 40;
 
     [Export]
-    public int RewardOutputRadius { get; set; } = 20;
+    public int RewardXShift { get; set; } = 5;
 
     [Export]
     public PackedScene InputRewardScene { get; set; } = default!;
@@ -38,21 +38,20 @@ public partial class Chest : Node2D
     private InteractableComponent _interactableComponent = default!; 
     private Control _interactableLabelComponent = default!; 
     private FeedComponent _feedComponent = default!; 
-    private AnimatedSprite2D _animatedSprite2D = default!; 
     private Marker2D _rewardMarker2D = default!;
 
     private bool _isPlayerInRange = false;
     private bool _isOpen = false;
+    private int _currentXShift = 0;
 
     public override void _Ready()
     {
         _dialogueManager = GetNode<CarrotCottageDialogueManager>(GlobalNames.DialogueManager);
         _inventoryManager = GetNode<InventoryManager>(GlobalNames.InventoryManager);
-        _interactableComponent = GetNode<InteractableComponent>(ChestConstants.Nodes.InteractableComponent);
-        _interactableLabelComponent = GetNode<Control>(ChestConstants.Nodes.InteractableLabelComponent);
-        _feedComponent = GetNode<FeedComponent>(ChestConstants.Nodes.FeedComponent);
-        _animatedSprite2D = GetNode<AnimatedSprite2D>(ChestConstants.Nodes.AnimatedSprite2D);
-        _rewardMarker2D = GetNode<Marker2D>(ChestConstants.Nodes.RewardMarker2D);
+        _interactableComponent = GetNode<InteractableComponent>(BaseAnimalHouseConstants.Nodes.InteractableComponent);
+        _interactableLabelComponent = GetNode<Control>(BaseAnimalHouseConstants.Nodes.InteractableLabelComponent);
+        _feedComponent = GetNode<FeedComponent>(BaseAnimalHouseConstants.Nodes.FeedComponent);
+        _rewardMarker2D = GetNode<Marker2D>(BaseAnimalHouseConstants.Nodes.RewardMarker2D);
 
         _interactableLabelComponent.Visible = false;
 
@@ -81,11 +80,7 @@ public partial class Chest : Node2D
         _interactableLabelComponent.Visible = false;
         _isPlayerInRange = false;
 
-        if (_isOpen)
-        {
-            _animatedSprite2D.PlayBackwards(ChestConstants.Animations.OpeningOrClosing);
-            _isOpen = false;
-        }
+        _isOpen = false && _isOpen;
     }
 
     private void OnFoodReceived(Area2D food)
@@ -115,30 +110,24 @@ public partial class Chest : Node2D
 
             _inventoryManager.RemoveCollectable(_inventoryItem);
         }
+
+        _currentXShift = 0;
     }
 
     private void AddRewardScene()
     {
-        foreach(var scene in OutputRewardScenes)
+        foreach (var scene in OutputRewardScenes)
         {
             var rewardInstance = scene.Instantiate<Node2D>();
 
-            var rewardPosition = GetRandomPositionInCircle(_rewardMarker2D.GlobalPosition, RewardOutputRadius);
+            var rewardPosition = _rewardMarker2D.GlobalPosition;
+            rewardPosition.X -= _currentXShift;
             rewardInstance.GlobalPosition = rewardPosition;
-            GetTree().Root.AddChild(rewardInstance);
+
+            GetTree().CurrentScene.AddChild(rewardInstance);
         }
-    }
 
-    private Vector2I GetRandomPositionInCircle(Vector2 center, int r)
-    {
-        var angle = GD.Randf() * Math.Tau;
-
-        var distanceFromCenter = Math.Sqrt(GD.Randf()) * r;
-
-        var x = center.X + distanceFromCenter * Math.Cos(angle);
-        var y = center.Y + distanceFromCenter * Math.Sin(angle);
-
-        return new Vector2I((int)x, (int)y);
+        _currentXShift += RewardXShift;
     }
 
     public override void _UnhandledInput(InputEvent @event)
@@ -147,12 +136,11 @@ public partial class Chest : Node2D
             && _isPlayerInRange)
         {
             _interactableLabelComponent.Visible = false;
-            _animatedSprite2D.Play(ChestConstants.Animations.OpeningOrClosing);
             _isOpen = true;
 
             var dialogueBalloon = _dialogueBalloonScene.Instantiate<DialogueBalloon>();
             GetTree().CurrentScene.AddChild(dialogueBalloon);
-            dialogueBalloon.Start(GD.Load<Resource>("res://Dialogues/ChestDialogue.dialogue"), InteractStartCommand);
+            dialogueBalloon.Start(GD.Load<Resource>("res://Dialogues/AnimalHouseDialogue.dialogue"), InteractStartCommand);
         }
     }
 

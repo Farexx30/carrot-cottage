@@ -119,7 +119,7 @@ ShowDialogue={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res://Dialogues/GuideDialogue.dialogue", "res://Dialogues/ChestDialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res://Dialogues/GuideDialogue.dialogue", "res://Dialogues/AnimalHouseDialogue.dialogue")
 
 [layer_names]
 
