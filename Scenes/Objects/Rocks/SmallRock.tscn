@@ -23,7 +23,7 @@ texture = SubResource("AtlasTexture_t8832")
 offset = Vector2(0, -3)
 script = ExtResource("2_od8ay")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["navigation_polygon_source_geometry_group"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 rotation = 1.5708
