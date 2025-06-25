@@ -41,8 +41,7 @@ public partial class BaseAnimalHouse : Node2D
     private Marker2D _rewardMarker2D = default!;
 
     private bool _isPlayerInRange = false;
-    private bool _isOpen = false;
-    private int _currentXShift = 0;
+    private int _currentXShift = 0; 
 
     public override void _Ready()
     {
@@ -80,7 +79,6 @@ public partial class BaseAnimalHouse : Node2D
         _interactableLabelComponent.Visible = false;
         _isPlayerInRange = false;
 
-        _isOpen = false && _isOpen;
         _currentXShift = 0;
     }
 
@@ -99,8 +97,14 @@ public partial class BaseAnimalHouse : Node2D
         for (int i = 0; i < count; ++i)
         {
             var harvestInstance = scene.Instantiate<Node2D>();
+
+            // Remove the "2" collectable component collision mask to prevent the harvestable from being collected by the player during feed animation.
+            var harvestCollectableComponent = harvestInstance.GetNodeOrNull<Area2D>(ComponentNames.CollectableComponent);
+            harvestCollectableComponent.CollisionMask &= ~(1u << 1);
+
             harvestInstance.GlobalPosition = new Vector2(GlobalPosition.X, GlobalPosition.Y - FoodDropHeight);
             GetTree().Root.AddChild(harvestInstance);
+
 
             await ToSignal(GetTree().CreateTimer(0.8f), Timer.SignalName.Timeout);
 
@@ -135,7 +139,6 @@ public partial class BaseAnimalHouse : Node2D
             && _isPlayerInRange)
         {
             _interactableLabelComponent.Visible = false;
-            _isOpen = true;
 
             var dialogueBalloon = _dialogueBalloonScene.Instantiate<DialogueBalloon>();
             GetTree().CurrentScene.AddChild(dialogueBalloon);

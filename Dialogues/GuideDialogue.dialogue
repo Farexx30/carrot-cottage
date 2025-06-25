@@ -1,4 +1,5 @@
 ~ start
+do CarrotCottageDialogueManager.DialogueStart()
 Ginger: [[Hi|Hello|Howdy]], nice to meet you.
 Ginger: Welcome to your new farm.
 Ginger: As you can see the cows and chickens are hungry.
@@ -9,4 +10,5 @@ Ginger: Here are some seeds to grow them.
 	do CarrotCottageDialogueManager.GiveSeeds()
 - No, I don't want them
 	Oregano: I'm not ready to grow my farm yet.	
+do CarrotCottageDialogueManager.DialogueEnd()
 => END

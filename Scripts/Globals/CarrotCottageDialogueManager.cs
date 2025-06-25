@@ -1,3 +1,4 @@
+using CarrotCottage.Scripts.Characters.PlayerScripts.Inputs;
 using Godot;
 using System;
 using System.Threading.Tasks;
@@ -11,6 +12,10 @@ public partial class CarrotCottageDialogueManager : Node
 
     [Signal]
     public delegate void FeedTheAnimalsEventHandler();
+
+    public static void DialogueStart() => InputEvents.CanMove = false;
+    public static void DialogueEnd() => InputEvents.CanMove = true;
+    
 
     public void GiveSeeds()
     {

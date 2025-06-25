@@ -24,7 +24,7 @@ rotation = 1.5708
 shape = SubResource("CircleShape2D_djy8f")
 debug_color = Color(0, 0.640995, 0.341327, 0.42)
 
-[node name="FeedComponent" parent="." instance=ExtResource("4_iqi6j")]
+[node name="FeedComponent" parent="." groups=["navigation_polygon_source_geometry_group"] instance=ExtResource("4_iqi6j")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent"]
 position = Vector2(0, -2)

@@ -1,4 +1,5 @@
 ~ CowHouseStart
+do CarrotCottageDialogueManager.DialogueStart()
 Pasture Chest: [[Hi|Hello|Howdy]]
 Pasture Chest: Would you like to feed your cows?
 - Yes
@@ -6,9 +7,11 @@ Pasture Chest: Would you like to feed your cows?
 	do CarrotCottageDialogueManager.FeedAnimals()
 - No
 	Oregano: No, I don't need to feed them now. I have enough milk.
+do CarrotCottageDialogueManager.DialogueEnd()
 => END
 
 ~ ChickenHouseStart
+do CarrotCottageDialogueManager.DialogueStart()
 Pasture Chest: [[Hi|Hello|Howdy]]
 Pasture Chest: Would you like to feed your chickens?
 - Yes
@@ -16,4 +19,5 @@ Pasture Chest: Would you like to feed your chickens?
 	do CarrotCottageDialogueManager.FeedAnimals()
 - No
 	Oregano: No, I don't need to feed them now. I have enough eggs.
+do CarrotCottageDialogueManager.DialogueEnd()
 => END
