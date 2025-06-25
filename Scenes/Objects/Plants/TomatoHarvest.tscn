@@ -10,12 +10,13 @@ region = Rect2(16, 64, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hj5v"]
 radius = 5.0
 
-[node name="Tomato" type="Sprite2D"]
+[node name="TomatoHarvest" type="Sprite2D"]
 y_sort_enabled = true
 texture = SubResource("AtlasTexture_05rg0")
 offset = Vector2(0, -6)
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_05rg0")]
+collision_layer = 160
 CollectableName = &"Tomato"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]

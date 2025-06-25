@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CarrotCottage"
-run/main_scene="uid://cab4uqioo8h8c"
+run/main_scene="uid://dgy8vmdcvtlbw"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 run/layer_7=""
@@ -119,7 +119,7 @@ ShowDialogue={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res://Dialogues/GuideDialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res://Dialogues/GuideDialogue.dialogue", "res://Dialogues/AnimalHouseDialogue.dialogue")
 
 [layer_names]
 
@@ -132,6 +132,7 @@ locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res:
 2d_physics/layer_5="Objects"
 2d_physics/layer_6="Collectable"
 2d_physics/layer_7="Npc"
+2d_physics/layer_8="Food"
 
 [rendering]
 

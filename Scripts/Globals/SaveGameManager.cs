@@ -13,8 +13,6 @@ public partial class SaveGameManager : Node
         }
     }
 
-
-
     private void SaveGame()
     {
         var saveLevelDataComponent = (SaveLevelDataComponent)GetTree().GetFirstNodeInGroup(nameof(SaveLevelDataComponent));

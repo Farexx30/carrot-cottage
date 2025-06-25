@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbo6kag42xuxn"]
+
+[ext_resource type="PackedScene" uid="uid://t02gegca0r41" path="res://Scenes/Objects/AnimalHouses/BaseAnimalHouse.tscn" id="1_2k6m6"]
+[ext_resource type="Texture2D" uid="uid://ch6s0ic1eh57s" path="res://Assets/Tilesets/Building parts/Animal Structures/Chikcen_Houses.png" id="1_x8ljb"]
+[ext_resource type="PackedScene" uid="uid://c0wfie65kvqyl" path="res://Scenes/Objects/Plants/WheatHarvest.tscn" id="2_u8vrs"]
+[ext_resource type="PackedScene" uid="uid://bt1q24cr62ljb" path="res://Scenes/Objects/Egg.tscn" id="3_72u3f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k6m6"]
+atlas = ExtResource("1_x8ljb")
+region = Rect2(320, 0, 64, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvdu0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k6m6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}]
+
+[node name="ChickenHouse" instance=ExtResource("1_2k6m6")]
+InteractStartCommand = &"ChickenHouseStart"
+InputRewardScene = ExtResource("2_u8vrs")
+InputRewardSceneName = &"Wheat"
+OutputRewardScenes = Array[PackedScene]([ExtResource("3_72u3f")])
+
+[node name="InteractableComponent" parent="." index="0"]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" parent="InteractableComponent" index="0"]
+y_sort_enabled = true
+position = Vector2(0, 8)
+
+[node name="FeedComponent" parent="." index="1"]
+y_sort_enabled = true
+
+[node name="InteractableLabelComponent" parent="." index="2"]
+offset_left = -51.0
+offset_top = -48.0
+offset_right = -33.0
+offset_bottom = -30.0
+
+[node name="RewardMarker2D" parent="." index="3"]
+y_sort_enabled = true
+position = Vector2(-13, 7)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4"]
+y_sort_enabled = true
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_jvdu0")
+animation = &"Idle"
+autoplay = "Idle"
+offset = Vector2(0, -14)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="5"]
+position = Vector2(0, -10)
+polygon = PackedVector2Array(-1, -7, -23, -7, -23, 9, -21, 9, -20, 10, -16, 10, -16, 9, -1, 9, -1, 15, 7, 15, 7, 9, 15, 9, 15, 10, 19, 10, 19, 9, 23, 9, 23, -7)

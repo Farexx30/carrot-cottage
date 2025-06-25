@@ -6,10 +6,18 @@ namespace CarrotCottage.Scripts.Characters.PlayerScripts.Inputs;
 
 public static class InputEvents
 {
+    public static bool CanMove { get; set; } = true;
+
     private static Vector2 s_direction;
 
     public static Vector2 MovementInputDirection()
     {
+        if (!CanMove)
+        {
+            s_direction = Vector2.Zero;
+            return s_direction;
+        }
+
         if (Input.IsActionPressed(InputConstants.WalkUp))
         {
             s_direction = Vector2.Up;

@@ -11,12 +11,13 @@ region = Rect2(16, 128, 16, 16)
 radius = 1.41421
 height = 12.7279
 
-[node name="Wheat" type="Sprite2D"]
+[node name="WheatHarvest" type="Sprite2D"]
 y_sort_enabled = true
 texture = SubResource("AtlasTexture_aqqfd")
 offset = Vector2(1, -4)
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_aqqfd")]
+collision_layer = 160
 CollectableName = &"Wheat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]

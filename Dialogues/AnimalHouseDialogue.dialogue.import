@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bvnwyy2keved"
+path="res://.godot/imported/AnimalHouseDialogue.dialogue-a4611564da239c03641ebfe7cedd14fd.tres"
+
+[deps]
+
+source_file="res://Dialogues/AnimalHouseDialogue.dialogue"
+dest_files=["res://.godot/imported/AnimalHouseDialogue.dialogue-a4611564da239c03641ebfe7cedd14fd.tres"]
+
+[params]
+
+defaults=true

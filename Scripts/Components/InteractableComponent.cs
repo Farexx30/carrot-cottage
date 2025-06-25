@@ -1,3 +1,4 @@
+using CarrotCottage.Scripts.Characters.PlayerScripts.Inputs;
 using CarrotCottage.Scripts.Objects;
 using Godot;
 using System;

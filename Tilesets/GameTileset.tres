@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=34 format=3 uid="uid://mouxg0codq2m"]
+[gd_resource type="TileSet" load_steps=36 format=3 uid="uid://mouxg0codq2m"]
 
 [ext_resource type="Texture2D" uid="uid://4cedd5ej0q57" path="res://Assets/Tilesets/ground tiles/water frames/Water.png" id="1_ebtdh"]
 [ext_resource type="Texture2D" uid="uid://b5ijwnlkvlc5f" path="res://Assets/Objects/Mushrooms, Flowers, Stones.png" id="2_p8dw5"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://bey70yrfbihux" path="res://Scenes/Objects/Trees/NormalTree.tscn" id="10_ittla"]
 [ext_resource type="PackedScene" uid="uid://cr4kyevkfvf8q" path="res://Scenes/Objects/Trees/LargeTree.tscn" id="11_s86vg"]
 [ext_resource type="PackedScene" uid="uid://xuejcg5sac28" path="res://Scenes/Objects/Rocks/SmallRock.tscn" id="12_mr1h7"]
+[ext_resource type="PackedScene" uid="uid://bbo6kag42xuxn" path="res://Scenes/Objects/AnimalHouses/ChickenHouse.tscn" id="13_tpeum"]
+[ext_resource type="PackedScene" uid="uid://jaft78h2hf2u" path="res://Scenes/Objects/AnimalHouses/CowHouse.tscn" id="14_7xjx6"]
 [ext_resource type="Texture2D" uid="uid://ccfqujyr8qkgj" path="res://Assets/Tilesets/Building parts/Fences.png" id="16_ap68y"]
 [ext_resource type="Texture2D" uid="uid://c6l8rsjxwqvx4" path="res://Assets/Tilesets/ground tiles/Old tiles/Tilled_Dirt_Wide_v2.png" id="16_utwp1"]
 
@@ -2785,6 +2787,8 @@ scenes/3/scene = ExtResource("9_wded8")
 scenes/4/scene = ExtResource("10_ittla")
 scenes/5/scene = ExtResource("11_s86vg")
 scenes/6/scene = ExtResource("12_mr1h7")
+scenes/7/scene = ExtResource("13_tpeum")
+scenes/8/scene = ExtResource("14_7xjx6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8dw5"]
 texture = ExtResource("6_p8dw5")
