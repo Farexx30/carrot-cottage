@@ -31,7 +31,7 @@ texture = SubResource("AtlasTexture_52b2c")
 offset = Vector2(0, -11)
 script = ExtResource("2_2rda7")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

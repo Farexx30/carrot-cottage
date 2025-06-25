@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hury1"]
 size = Vector2(16, 11)
 
-[node name="CowHouse" groups=["navigation_polygon_source_geometry_group"] instance=ExtResource("1_rfc8e")]
+[node name="CowHouse" instance=ExtResource("1_rfc8e")]
 InteractStartCommand = &"CowHouseStart"
 FoodDropHeight = 20
 InputRewardScene = ExtResource("2_sc17f")

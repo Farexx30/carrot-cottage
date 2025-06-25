@@ -12,7 +12,7 @@ radius = 18.0
 radius = 3.0
 height = 14.0
 
-[node name="BaseAnimalHouse" type="StaticBody2D"]
+[node name="BaseAnimalHouse" type="StaticBody2D" groups=["navigation_polygon_source_geometry_group"]]
 y_sort_enabled = true
 script = ExtResource("1_7uk5o")
 
