@@ -18,8 +18,10 @@ y_sort_enabled = true
 script = ExtResource("1_s6yt1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 1)
 texture = ExtResource("1_snk18")
-offset = Vector2(0, -5)
+offset = Vector2(0, -6)
 hframes = 5
 vframes = 15
 frame = 20

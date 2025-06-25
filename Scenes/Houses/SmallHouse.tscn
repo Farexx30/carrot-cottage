@@ -4,6 +4,7 @@
 
 [node name="SmallHouse" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(9, 0)
 
 [node name="HouseTileMap" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -21,5 +22,9 @@ tile_set = ExtResource("1_lio24")
 
 [node name="Furniture" type="TileMapLayer" parent="HouseTileMap"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAABAPz/AQAEAAIAAAACAPv/AQAFAAUAAAACAPz/AQAEAAMAAAADAPz/AQAFAAIAAAAAAPr/AQADAAAAAAAAAP3/AQAFAAEAAAABAPr/AQAFAAAAAAACAPn/AQACAAAAAAACAPr/AQADAAIAAAADAPr/AQACAAEAAGAEAP3/AQAFAAEAAAABAP3/AQAEAAEAAAACAP3/AQADAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAPz/AQAEAAIAAAACAPz/AQAEAAMAAAADAPz/AQAFAAIAAAAAAPr/AQADAAAAAAAAAP3/AQAFAAEAAAABAPr/AQAFAAAAAAACAPn/AQACAAAAAAACAPr/AQADAAIAAAAEAP3/AQAFAAEAAAABAP3/AQAEAAEAAAACAP3/AQADAAEAAAAEAPr/AQACAAEAAAA=")
+tile_set = ExtResource("1_lio24")
+
+[node name="Carpets" type="TileMapLayer" parent="HouseTileMap"]
+tile_map_data = PackedByteArray("AAACAP7/AQAFAAUAAAA=")
 tile_set = ExtResource("1_lio24")
