@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cy46ktyhbhol2" path="res://Scenes/Components/InteractableLabelComponent.tscn" id="5_5bh85"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_djy8f"]
-radius = 16.1245
+radius = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foubl"]
 radius = 3.0

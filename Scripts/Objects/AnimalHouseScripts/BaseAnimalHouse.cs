@@ -81,6 +81,7 @@ public partial class BaseAnimalHouse : Node2D
         _isPlayerInRange = false;
 
         _isOpen = false && _isOpen;
+        _currentXShift = 0;
     }
 
     private void OnFoodReceived(Area2D food)
@@ -110,8 +111,6 @@ public partial class BaseAnimalHouse : Node2D
 
             _inventoryManager.RemoveCollectable(_inventoryItem);
         }
-
-        _currentXShift = 0;
     }
 
     private void AddRewardScene()

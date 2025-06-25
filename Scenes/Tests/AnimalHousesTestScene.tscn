@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgy8vmdcvtlbw"]
+[gd_scene load_steps=9 format=4 uid="uid://dgy8vmdcvtlbw"]
 
 [ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="1_hq054"]
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="2_2uafo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cttvyebri7ekw" path="res://Scenes/Components/EnableToolsPanelInTestSceneComponent.tscn" id="4_a3ays"]
 [ext_resource type="PackedScene" uid="uid://0qwjpgnopf5o" path="res://Scenes/Objects/Plants/TomatoHarvest.tscn" id="6_6l5p1"]
 [ext_resource type="PackedScene" uid="uid://bbo6kag42xuxn" path="res://Scenes/Objects/AnimalHouses/ChickenHouse.tscn" id="7_a8arf"]
+[ext_resource type="PackedScene" uid="uid://jaft78h2hf2u" path="res://Scenes/Objects/AnimalHouses/CowHouse.tscn" id="8_ajay6"]
 [ext_resource type="PackedScene" uid="uid://c0wfie65kvqyl" path="res://Scenes/Objects/Plants/WheatHarvest.tscn" id="8_tcuru"]
 
 [node name="AnimalHousesTestScene" type="Node2D"]
@@ -35,6 +36,15 @@ tile_set = ExtResource("2_2uafo")
 [node name="Collectables" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="WheatHarvest4" parent="Collectables" instance=ExtResource("8_tcuru")]
+position = Vector2(303, 246)
+
+[node name="WheatHarvest5" parent="Collectables" instance=ExtResource("8_tcuru")]
+position = Vector2(342, 222)
+
+[node name="WheatHarvest6" parent="Collectables" instance=ExtResource("8_tcuru")]
+position = Vector2(258, 215)
+
 [node name="TomatoHarvest" parent="Collectables" instance=ExtResource("6_6l5p1")]
 position = Vector2(287, 284)
 
@@ -56,11 +66,5 @@ position = Vector2(187, 259)
 [node name="ChickenHouse" parent="." instance=ExtResource("7_a8arf")]
 position = Vector2(331, 190)
 
-[node name="WheatHarvest" parent="." instance=ExtResource("8_tcuru")]
-position = Vector2(303, 246)
-
-[node name="WheatHarvest2" parent="." instance=ExtResource("8_tcuru")]
-position = Vector2(342, 222)
-
-[node name="WheatHarvest3" parent="." instance=ExtResource("8_tcuru")]
-position = Vector2(258, 215)
+[node name="CowHouse" parent="." instance=ExtResource("8_ajay6")]
+position = Vector2(239, 194)
