@@ -13,7 +13,7 @@ public partial class GameMenuScreen : CanvasLayer
     {
         _gameManager = GetNode<GameManager>(GlobalNames.GameManager);
 
-        var startOrContinueGameButton = GetNode<Button>(GameMenuScreenConstants.Nodes.StartGameButton);
+        var startOrContinueGameButton = GetNode<Button>(GameMenuScreenConstants.Nodes.StartOrContinueGameButton);
         startOrContinueGameButton.Text = _gameManager.GameAlreadyStarted 
             ? GameMenuScreenConstants.Texts.StartGameButtonText
             : GameMenuScreenConstants.Texts.ContinueGameButtonText;

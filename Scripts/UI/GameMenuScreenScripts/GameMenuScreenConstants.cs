@@ -10,7 +10,7 @@ public static class GameMenuScreenConstants
 {
     public static class Nodes
     {
-        public const string StartGameButton = "MarginContainer/VBoxContainer/StartOrContinueGameButton";
+        public const string StartOrContinueGameButton = "MarginContainer/VBoxContainer/StartOrContinueGameButton";
         public const string SaveGameButton = "MarginContainer/VBoxContainer/SaveGameButton";
         public const string ExitGameButton = "MarginContainer/VBoxContainer/ExitGameButton";
     }
