@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://s6qljdksvree"]
+[gd_scene load_steps=4 format=3 uid="uid://s6qljdksvree"]
 
 [ext_resource type="Theme" uid="uid://dh4sgc86nk71c" path="res://Scenes/UI/Themes/GameUITheme.tres" id="1_fj48h"]
 [ext_resource type="PackedScene" uid="uid://bggwnw0p5t3e5" path="res://Scenes/GameMenuScreenBackground.tscn" id="1_ggwyi"]
+[ext_resource type="Script" uid="uid://n2qhr3tplj42" path="res://Scripts/UI/GameMenuScreenScripts/GameMenuScreen.cs" id="1_p787i"]
 
 [node name="GameMenuScreen" type="CanvasLayer"]
+script = ExtResource("1_p787i")
 
 [node name="GameMenuScreenBackground" parent="." instance=ExtResource("1_ggwyi")]
 position = Vector2(-92, -30)
@@ -53,3 +55,7 @@ custom_minimum_size = Vector2(100, 29)
 layout_mode = 2
 theme_type_variation = &"GameMenuButton"
 text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="OnStartGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="OnSaveGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="OnExitGameButtonPressed"]
