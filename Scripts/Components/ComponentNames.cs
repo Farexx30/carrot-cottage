@@ -13,4 +13,5 @@ public static class ComponentNames
     public const string HitComponent = "HitComponent";
     public const string InteractableComponent = "InteractableComponent";
     public const string CollectableComponent = "CollectableComponent";
+    public const string EnableToolsPanelComponent = "EnableToolsPanelComponent";
 }

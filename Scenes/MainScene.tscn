@@ -1,29 +1,28 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvay5wxnubdoa"]
 
 [ext_resource type="PackedScene" uid="uid://bd185diblk1pd" path="res://Scenes/Components/DayAndNightCycleComponent.tscn" id="1_nhkr4"]
+[ext_resource type="PackedScene" uid="uid://nffuw2mxjql6" path="res://Scenes/Components/MouseCursorComponent.tscn" id="1_qxria"]
 [ext_resource type="PackedScene" uid="uid://dx34djy40b2oq" path="res://Scenes/Levels/Level1.tscn" id="2_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="3_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://d0ldjtghf20a5" path="res://Scenes/UI/GameScreen.tscn" id="3_qxria"]
-[ext_resource type="PackedScene" uid="uid://dm1stiw5cmsxr" path="res://Scenes/Characters/Guide.tscn" id="5_qxria"]
 
 [node name="MainScene" type="Node"]
+
+[node name="MouseCursorComponent" parent="." instance=ExtResource("1_qxria")]
 
 [node name="DayAndNightCycleComponent" parent="." instance=ExtResource("1_nhkr4")]
 
 [node name="GameRoot" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Guide" parent="GameRoot" instance=ExtResource("5_qxria")]
-position = Vector2(521, 643)
+[node name="Player" parent="GameRoot" instance=ExtResource("3_7rqgy")]
+position = Vector2(583, 641)
+
+[node name="Camera2D" type="Camera2D" parent="GameRoot/Player"]
 
 [node name="LevelRoot" type="Node2D" parent="GameRoot"]
 y_sort_enabled = true
 
 [node name="Level1" parent="GameRoot/LevelRoot" instance=ExtResource("2_7rqgy")]
-
-[node name="Player" parent="GameRoot" instance=ExtResource("3_7rqgy")]
-position = Vector2(950, 407)
-
-[node name="Camera2D" type="Camera2D" parent="GameRoot/Player"]
 
 [node name="GameScreen" parent="." instance=ExtResource("3_qxria")]

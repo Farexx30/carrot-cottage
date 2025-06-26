@@ -21,6 +21,7 @@ public partial class Player : CharacterBody2D
         _hitComponent = GetNode<HitComponent>(ComponentNames.HitComponent);
 
         _toolsManager.ToolChanged += OnToolChanged;
+        GD.Print(this);
     }
 
     private void OnToolChanged(PlayerTools newTool)

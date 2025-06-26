@@ -4,6 +4,7 @@ using CarrotCottage.Scripts.Common;
 using CarrotCottage.Scripts.Globals;
 using Godot;
 using System;
+using System.Linq;
 
 namespace CarrotCottage.Scripts.Components;
 
@@ -37,6 +38,7 @@ public partial class FieldCursorComponent : Node
     {
         _toolsManager = GetNode<ToolsManager>(GlobalNames.ToolsManager);
         _player = (Player)GetTree().GetFirstNodeInGroup("Player");
+        GD.Print($"FieldCursorComponent player ref: {_player}");
     }
 
     public override void _UnhandledInput(InputEvent @event)

@@ -8,6 +8,11 @@ namespace CarrotCottage.Scripts.Characters.Npcs;
 
 public static class NpcConstants
 {
+    public static class Nodes
+    {
+        public const string AnimatedSprite2D = "AnimatedSprite2D";
+    }
+
     public static class Animations
     {
         public const string Idle = "Idle";

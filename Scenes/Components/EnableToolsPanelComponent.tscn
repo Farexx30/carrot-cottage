@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cttvyebri7ekw"]
+
+[ext_resource type="Script" uid="uid://dx5msdnevejvo" path="res://Scripts/Components/EnableToolsPanelComponent.cs" id="1_y6iel"]
+[ext_resource type="PackedScene" uid="uid://bwsi5tg3it5f6" path="res://Scenes/Components/SaveDataComponent.tscn" id="2_xliyd"]
+[ext_resource type="Resource" uid="uid://xw7awkc82vdd" path="res://Resources/ToolsPanelResource.tres" id="3_aedfs"]
+
+[node name="EnableToolsPanelComponent" type="Node2D"]
+script = ExtResource("1_y6iel")
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("2_xliyd")]
+SaveDataResource = ExtResource("3_aedfs")

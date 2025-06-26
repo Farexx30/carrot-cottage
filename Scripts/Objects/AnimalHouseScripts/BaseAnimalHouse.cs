@@ -127,7 +127,7 @@ public partial class BaseAnimalHouse : Node2D
             rewardPosition.X -= _currentXShift;
             rewardInstance.GlobalPosition = rewardPosition;
 
-            GetTree().CurrentScene.AddChild(rewardInstance);
+            GetTree().Root.AddChild(rewardInstance);
         }
 
         _currentXShift += RewardXShift;
@@ -141,7 +141,7 @@ public partial class BaseAnimalHouse : Node2D
             _interactableLabelComponent.Visible = false;
 
             var dialogueBalloon = _dialogueBalloonScene.Instantiate<DialogueBalloon>();
-            GetTree().CurrentScene.AddChild(dialogueBalloon);
+            GetTree().Root.AddChild(dialogueBalloon);
             dialogueBalloon.Start(GD.Load<Resource>("res://Dialogues/AnimalHouseDialogue.dialogue"), InteractStartCommand);
         }
     }

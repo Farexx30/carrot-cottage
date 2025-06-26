@@ -7,7 +7,7 @@
 [ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/Shake.gdshader" id="5_rlmpq"]
 [ext_resource type="PackedScene" uid="uid://d3fqf3nheeslu" path="res://Scenes/Objects/Plants/Wheat.tscn" id="6_u5bbx"]
 [ext_resource type="PackedScene" uid="uid://b8pynwqqxyxnv" path="res://Scenes/Objects/Plants/Tomato.tscn" id="7_7xyah"]
-[ext_resource type="PackedScene" uid="uid://cttvyebri7ekw" path="res://Scenes/Components/EnableToolsPanelInTestSceneComponent.tscn" id="8_m082b"]
+[ext_resource type="PackedScene" uid="uid://cttvyebri7ekw" path="res://Scenes/Components/EnableToolsPanelComponent.tscn" id="8_m082b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x053e"]
 resource_local_to_scene = true

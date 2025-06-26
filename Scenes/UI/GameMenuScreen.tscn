@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://s6qljdksvree"]
+
+[ext_resource type="Theme" uid="uid://dh4sgc86nk71c" path="res://Scenes/UI/Themes/GameUITheme.tres" id="1_fj48h"]
+[ext_resource type="PackedScene" uid="uid://bggwnw0p5t3e5" path="res://Scenes/GameMenuScreenBackground.tscn" id="1_ggwyi"]
+[ext_resource type="Script" uid="uid://n2qhr3tplj42" path="res://Scripts/UI/GameMenuScreenScripts/GameMenuScreen.cs" id="1_p787i"]
+[ext_resource type="PackedScene" uid="uid://nffuw2mxjql6" path="res://Scenes/Components/MouseCursorComponent.tscn" id="2_syn6q"]
+
+[node name="GameMenuScreen" type="CanvasLayer"]
+script = ExtResource("1_p787i")
+
+[node name="MouseCursorComponent" parent="." instance=ExtResource("2_syn6q")]
+
+[node name="GameMenuScreenBackground" parent="." instance=ExtResource("1_ggwyi")]
+position = Vector2(-92, -30)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fj48h")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 63
+text = "Carrot Cottage"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartOrContinueGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "Start"
+
+[node name="SaveGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "Save
+"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartOrContinueGameButton" to="." method="OnStartGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="OnSaveGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="OnExitGameButtonPressed"]
