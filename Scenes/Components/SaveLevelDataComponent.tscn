@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://w8pehdxdwcxa"]
+[gd_scene load_steps=2 format=3 uid="uid://w8pehdxdwcxa"]
+
+[ext_resource type="Script" uid="uid://boa5hjv7ssj02" path="res://Scripts/Components/SaveLevelDataComponent.cs" id="1_mfiq6"]
 
 [node name="SaveLevelDataComponent" type="Node"]
+script = ExtResource("1_mfiq6")

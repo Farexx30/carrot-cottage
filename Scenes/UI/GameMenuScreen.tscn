@@ -29,7 +29,7 @@ theme_override_colors/font_color = Color(0.666667, 0.47451, 0.34902, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 63
 text = "Carrot Cottage"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -37,25 +37,25 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 29)
+[node name="StartOrContinueGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme_type_variation = &"GameMenuButton"
 text = "Start"
 
 [node name="SaveGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 29)
+custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme_type_variation = &"GameMenuButton"
 text = "Save
 "
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 29)
+custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme_type_variation = &"GameMenuButton"
 text = "Exit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="OnStartGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartOrContinueGameButton" to="." method="OnStartGameButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="OnSaveGameButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="OnExitGameButtonPressed"]

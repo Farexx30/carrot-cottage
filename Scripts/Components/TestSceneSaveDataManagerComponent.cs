@@ -13,8 +13,8 @@ public partial class TestSceneSaveDataManagerComponent : Node
         CallDeferred(nameof(LoadTestScene));
     }
 
-    private void LoadTestScene()
+    private async void LoadTestScene()
     {
-        _saveGameManager.LoadGame();
+        await _saveGameManager.LoadGame();
     }
 }

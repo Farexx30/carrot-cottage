@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://xw7awkc82vdd"]
+
+[ext_resource type="Script" uid="uid://cnopngagvta7u" path="res://Scripts/Resources/ToolsPanelResource.cs" id="1_ox0uu"]
+
+[resource]
+script = ExtResource("1_ox0uu")

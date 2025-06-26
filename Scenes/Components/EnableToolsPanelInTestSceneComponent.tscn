@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cttvyebri7ekw"]
-
-[ext_resource type="Script" uid="uid://dx5msdnevejvo" path="res://Scripts/Components/EnableToolsPanelInTestSceneComponent.cs" id="1_y6iel"]
-
-[node name="EnableToolsPanelInTestSceneComponent" type="Node"]
-script = ExtResource("1_y6iel")

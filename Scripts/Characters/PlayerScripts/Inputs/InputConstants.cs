@@ -16,4 +16,5 @@ public static class InputConstants
     public const string ReleaseTool = "ReleaseTool";
     public const string RemoveObject = "RemoveObject";
     public const string ShowDialogue = "ShowDialogue";
+    public const string OpenMainMenu = "OpenMainMenu";
 }

@@ -6,14 +6,15 @@ namespace CarrotCottage.Scripts.Components;
 
 public partial class SaveLevelDataComponent : Node
 {
-    private StringName _levelSceneName = default!;
+    [Export]
+    public StringName LevelSceneName { get; set; } = default!;
+
     private StringName _saveGameDataPath = "user://GameData/";
     private SaveGameDataResource _gameDataResource = default!;
 
     public override void _Ready()
     {
         AddToGroup(nameof(SaveLevelDataComponent));
-        _levelSceneName = GetParent().Name;
     }
 
     private void SaveNodeData()
@@ -43,7 +44,7 @@ public partial class SaveLevelDataComponent : Node
             DirAccess.MakeDirAbsolute(_saveGameDataPath);    
         }
 
-        var levelSaveFileName = $"Save{_levelSceneName}GameData.tres";
+        var levelSaveFileName = $"Save{LevelSceneName}GameData.tres";
 
         SaveNodeData();
 
@@ -57,12 +58,12 @@ public partial class SaveLevelDataComponent : Node
 
     public void LoadGame()
     {
-        string levelSaveFileName = $"Save{_levelSceneName}GameData.tres";
+        string levelSaveFileName = $"Save{LevelSceneName}GameData.tres";
         string saveGamePath = $"{_saveGameDataPath}{levelSaveFileName}";
 
         if (!FileAccess.FileExists(saveGamePath))
         {
-            GD.PrintErr($"Save file does not exist at path: {saveGamePath}");
+            // GD.PrintErr($"Save file does not exist at path: {saveGamePath}");
             return;
         }
 

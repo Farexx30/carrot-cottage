@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=4 uid="uid://bggwnw0p5t3e5"]
 
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="1_vx0aj"]
-[ext_resource type="PackedScene" uid="uid://2vlojmdtqopd" path="res://Scenes/Characters/Player.tscn" id="2_cc1dd"]
 [ext_resource type="PackedScene" uid="uid://bbo6kag42xuxn" path="res://Scenes/Objects/AnimalHouses/ChickenHouse.tscn" id="3_ersk4"]
+[ext_resource type="PackedScene" uid="uid://cn2sh0dsvabmp" path="res://Scenes/Characters/PlayerForBackground.tscn" id="4_3o615"]
 [ext_resource type="PackedScene" uid="uid://jaft78h2hf2u" path="res://Scenes/Objects/AnimalHouses/CowHouse.tscn" id="4_xxri2"]
 [ext_resource type="PackedScene" uid="uid://dm1stiw5cmsxr" path="res://Scenes/Characters/Guide.tscn" id="5_xxri2"]
 [ext_resource type="PackedScene" uid="uid://ciyf7s1ge0tjf" path="res://Scenes/Characters/Chicken.tscn" id="6_3o615"]
@@ -59,8 +59,11 @@ position = Vector2(334, 174)
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="Player" parent="Characters" instance=ExtResource("2_cc1dd")]
-position = Vector2(406, 283)
+[node name="PlayerForBackground" parent="Characters" instance=ExtResource("4_3o615")]
+offset_left = 419.0
+offset_top = 281.0
+offset_right = 433.0
+offset_bottom = 297.0
 
 [node name="Guide" parent="Characters" instance=ExtResource("5_xxri2")]
 position = Vector2(501, 283)

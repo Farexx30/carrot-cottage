@@ -6,6 +6,7 @@ using CarrotCottage.Scripts.Globals;
 using DialogueManagerRuntime;
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 namespace CarrotCottage.Scripts.Characters.GuideScripts;
 
@@ -43,6 +44,11 @@ public partial class Guide : Node2D
         _toolsManager.EnableTool(PlayerTools.WateringCan);
         _toolsManager.EnableTool(PlayerTools.WheatSeeds);
         _toolsManager.EnableTool(PlayerTools.TomatoSeeds);
+
+        if (!GetParent().HasNode(ComponentNames.EnableToolsPanelComponent))
+        {
+            GetParent().AddChild(GD.Load<PackedScene>("res://Scenes/Components/EnableToolsPanelComponent.tscn").Instantiate());
+        }
     }
 
     private void OnInteractableActivated()
@@ -63,7 +69,7 @@ public partial class Guide : Node2D
             && _isInDialogueRange)
         {
             var dialogueBalloonInstance = _dialogueBalloonScene.Instantiate<BaseDialogueBalloon>();
-            GetTree().CurrentScene.AddChild(dialogueBalloonInstance);
+            GetTree().Root.AddChild(dialogueBalloonInstance);
             dialogueBalloonInstance.Start(GD.Load<Resource>("res://Dialogues/GuideDialogue.dialogue"), "start");
         }
     }

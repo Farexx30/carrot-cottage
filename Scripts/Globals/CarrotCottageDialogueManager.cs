@@ -15,7 +15,7 @@ public partial class CarrotCottageDialogueManager : Node
 
     public static void DialogueStart() => InputEvents.CanMove = false;
     public static void DialogueEnd() => InputEvents.CanMove = true;
-    
+   
 
     public void GiveSeeds()
     {

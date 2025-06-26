@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://dx34djy40b2oq"]
+[gd_scene load_steps=13 format=4 uid="uid://dx34djy40b2oq"]
 
+[ext_resource type="PackedScene" uid="uid://w8pehdxdwcxa" path="res://Scenes/Components/SaveLevelDataComponent.tscn" id="1_8h4de"]
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="1_riv1q"]
 [ext_resource type="PackedScene" uid="uid://bwsi5tg3it5f6" path="res://Scenes/Components/SaveDataComponent.tscn" id="2_xvio3"]
 [ext_resource type="Resource" uid="uid://qpdlf73p5baj" path="res://Resources/TilemapLayerDataResource.tres" id="3_kri6y"]
@@ -7,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dibauldfjhw7x" path="res://Scenes/Characters/Cow.tscn" id="5_kri6y"]
 [ext_resource type="PackedScene" uid="uid://dsosc1pbo7axd" path="res://Scenes/Components/FieldCursorComponent.tscn" id="7_8h4de"]
 [ext_resource type="PackedScene" uid="uid://cxo0fy0wuj34h" path="res://Scenes/Components/PlantsCursorComponent.tscn" id="8_jcebb"]
+[ext_resource type="PackedScene" uid="uid://c0wfie65kvqyl" path="res://Scenes/Objects/Plants/WheatHarvest.tscn" id="9_jcebb"]
+[ext_resource type="PackedScene" uid="uid://dm1stiw5cmsxr" path="res://Scenes/Characters/Guide.tscn" id="10_f3nwb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kri6y"]
 vertices = PackedVector2Array(253.688, 354, 288.891, 354, 255.93, 405.898, 56.2578, 440.289, 119.359, 342, 139, 291, 139, 354, 117.688, 348.18, 117.688, 335.82, 113.18, 331.313, 72.0234, 211.773, 139, 207.781, 139, 258, 94.8203, 331.313, 90.3125, 335.82, 14.2109, 262.359, 213, 343.227, 251, 323, 251, 343.227, 210.313, 354, 213, 334.508, 210.703, 323, 217, 252, 213, 253, 165, 323, 165, 291, 201, 258, 165, 258, 165, 253, 173, 253, 173, 258, 201, 253, 213, 252, 217, 216, 165, 216, 165, 130, 210.703, 130, 311, 163.938, 213, 118.492, 213, 66, 274.703, 66, 277, 54.4922, 277, 50, 311, 50, 310.039, 323, 99.6719, 330, 113.18, 352.688, 108.328, 354, 99.6719, 354, 20.7969, 406.523, 94.8203, 352.688, 90.3125, 348.18, 88.6406, 342, 108.328, 330)
@@ -22,6 +25,9 @@ source_geometry_mode = 2
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
+
+[node name="SaveLevelDataComponent" parent="." instance=ExtResource("1_8h4de")]
+LevelSceneName = &"Level1"
 
 [node name="GameTileMap" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -142,3 +148,12 @@ position = Vector2(377, 293)
 
 [node name="PlantFields" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="WheatHarvest2" parent="." instance=ExtResource("9_jcebb")]
+position = Vector2(1061, 495)
+
+[node name="WheatHarvest" parent="." instance=ExtResource("9_jcebb")]
+position = Vector2(1063, 441)
+
+[node name="Guide" parent="." instance=ExtResource("10_f3nwb")]
+position = Vector2(520, 653)

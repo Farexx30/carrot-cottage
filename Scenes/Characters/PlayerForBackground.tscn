@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn2sh0dsvabmp"]
+
+[ext_resource type="Texture2D" uid="uid://citftwmsosjng" path="res://Assets/Characters/Premium Charakter Spritesheet.png" id="2_te315"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqgis"]
+atlas = ExtResource("2_te315")
+region = Rect2(17, 16, 14, 16)
+
+[node name="PlayerForBackground" type="TextureRect"]
+texture = SubResource("AtlasTexture_fqgis")

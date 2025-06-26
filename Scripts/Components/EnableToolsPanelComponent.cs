@@ -5,7 +5,7 @@ using System;
 
 namespace CarrotCottage.Scripts.Components;
 
-public partial class EnableToolsPanelInTestSceneComponent : Node
+public partial class EnableToolsPanelComponent : Node2D
 {
     private ToolsManager _toolsManager = default!;
 
