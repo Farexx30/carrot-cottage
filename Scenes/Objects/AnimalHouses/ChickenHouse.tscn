@@ -37,6 +37,7 @@ position = Vector2(0, 8)
 y_sort_enabled = true
 
 [node name="InteractableLabelComponent" parent="." index="2"]
+visible = false
 offset_left = -51.0
 offset_top = -48.0
 offset_right = -33.0

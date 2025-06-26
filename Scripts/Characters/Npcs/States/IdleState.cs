@@ -21,6 +21,8 @@ public partial class IdleState : NodeState
 
     public override void _Ready()
     {
+        Npc.IsFlippedH = AnimatedSprite2D.FlipH;
+
         IdleStateTimer.Timeout += OnIdleTimerTimeout;
     }
 

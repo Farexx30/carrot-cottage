@@ -102,6 +102,7 @@ position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_htltj")
 
 [node name="InteractableLabelComponent" parent="." instance=ExtResource("4_jspm0")]
+visible = false
 z_index = 1
 offset_left = -28.0
 offset_top = -32.0

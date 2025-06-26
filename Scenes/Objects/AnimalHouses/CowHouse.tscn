@@ -19,6 +19,7 @@ OutputRewardScenes = Array[PackedScene]([ExtResource("3_fsby2")])
 position = Vector2(0, -4)
 
 [node name="InteractableLabelComponent" parent="." index="2"]
+visible = false
 offset_left = -26.0
 offset_top = -33.0
 offset_right = -8.0
