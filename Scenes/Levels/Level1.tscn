@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://dx34djy40b2oq"]
+[gd_scene load_steps=14 format=4 uid="uid://dx34djy40b2oq"]
 
 [ext_resource type="PackedScene" uid="uid://w8pehdxdwcxa" path="res://Scenes/Components/SaveLevelDataComponent.tscn" id="1_8h4de"]
+[ext_resource type="PackedScene" uid="uid://bfptd7tesu1in" path="res://Audio/BackgroundFarmMusic.tscn" id="1_57lp3"]
 [ext_resource type="TileSet" uid="uid://mouxg0codq2m" path="res://Tilesets/GameTileset.tres" id="1_riv1q"]
 [ext_resource type="PackedScene" uid="uid://bwsi5tg3it5f6" path="res://Scenes/Components/SaveDataComponent.tscn" id="2_xvio3"]
 [ext_resource type="Resource" uid="uid://qpdlf73p5baj" path="res://Resources/TilemapLayerDataResource.tres" id="3_kri6y"]
@@ -25,6 +26,8 @@ source_geometry_mode = 2
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
+
+[node name="BackgroundFarmMusic" parent="." instance=ExtResource("1_57lp3")]
 
 [node name="SaveLevelDataComponent" parent="." instance=ExtResource("1_8h4de")]
 LevelSceneName = &"Level1"
