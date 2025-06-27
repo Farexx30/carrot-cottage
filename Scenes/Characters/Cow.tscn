@@ -1,10 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://dibauldfjhw7x"]
+[gd_scene load_steps=21 format=3 uid="uid://dibauldfjhw7x"]
 
 [ext_resource type="Script" uid="uid://dwc0sx5bmtvye" path="res://Scripts/Characters/Npcs/Cow.cs" id="1_wmc5o"]
 [ext_resource type="Texture2D" uid="uid://rnfn6at1bwhq" path="res://Assets/Animals/Cow/Light cow animations.png" id="1_xlvei"]
 [ext_resource type="Script" uid="uid://7cp2qexige68" path="res://Scripts/StateMachine/NodeStateMachine.cs" id="2_v4xak"]
 [ext_resource type="Script" uid="uid://ggwjh1gy8mma" path="res://Scripts/Characters/Npcs/States/IdleState.cs" id="3_ryfit"]
 [ext_resource type="Script" uid="uid://d30tvdljhuq2b" path="res://Scripts/Characters/Npcs/States/WalkState.cs" id="4_wmc5o"]
+[ext_resource type="PackedScene" uid="uid://dku18ax4lkjm" path="res://Audio/CowMoo1SFX.tscn" id="6_80f3w"]
+[ext_resource type="PackedScene" uid="uid://cblvdvdx8i3oq" path="res://Scenes/Components/AudioPlayTimeComponent.tscn" id="7_n5tu3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4xak"]
 atlas = ExtResource("1_xlvei")
@@ -125,7 +127,6 @@ shape = SubResource("CapsuleShape2D_xlvei")
 navigation_layers = 2
 path_postprocessing = 1
 radius = 12.0
-debug_enabled = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("InitialNodeState")]
 script = ExtResource("2_v4xak")
@@ -148,3 +149,11 @@ MaxSpeed = 10.0
 [node name="IdleStateTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="CowMoo1sfx" parent="." instance=ExtResource("6_80f3w")]
+
+[node name="AudioPlayTimeComponent" parent="." node_paths=PackedStringArray("AudioStreamPlayer2D") instance=ExtResource("7_n5tu3")]
+wait_time = 15.0
+AudioStreamPlayer2D = NodePath("../CowMoo1sfx")
+MinWaitTime = 20.0
+MaxWaitTime = 120.0

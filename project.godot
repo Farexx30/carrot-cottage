@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 run/layer_7=""
 
+[audio]
+
+buses/default_bus_layout="uid://bk7nja010l78g"
+
 [autoload]
 
 ToolsManager="*res://Scripts/Globals/ToolsManager.cs"
@@ -52,6 +56,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 folder_colors={
 "res://Assets/": "orange",
+"res://Audio/": "teal",
 "res://Dialogues/": "red",
 "res://Properties/": "blue",
 "res://Resources/": "gray",
