@@ -53,6 +53,12 @@ theme_type_variation = &"GameMenuButton"
 text = "Save
 "
 
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "Credits"
+
 [node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
@@ -100,6 +106,7 @@ button_pressed = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartOrContinueGameButton" to="." method="OnStartGameButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="OnSaveGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="OnCreditsButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="OnExitGameButtonPressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MusicHBoxContainer/MusicButton" to="." method="OnMusicButtonPressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/SFXHBoxContainer/SFXButton" to="." method="OnSFXButtonPressed"]

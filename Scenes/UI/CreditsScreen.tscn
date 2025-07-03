@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnmmh8353cyxh"]
+
+[ext_resource type="Script" uid="uid://1pdo6d0ys85f" path="res://Scripts/UI/CreditsScreenScripts/CreditsScreen.cs" id="1_3mfvt"]
+[ext_resource type="PackedScene" uid="uid://bggwnw0p5t3e5" path="res://Scenes/GameMenuScreenBackground.tscn" id="1_qlhta"]
+[ext_resource type="PackedScene" uid="uid://nffuw2mxjql6" path="res://Scenes/Components/MouseCursorComponent.tscn" id="2_2f8bi"]
+[ext_resource type="Theme" uid="uid://dh4sgc86nk71c" path="res://Scenes/UI/Themes/GameUITheme.tres" id="3_egor5"]
+[ext_resource type="Texture2D" uid="uid://bg2mtypbqckh2" path="res://Assets/UI/Sprite sheet for Basic Pack.png" id="4_3mfvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvy4t"]
+atlas = ExtResource("4_3mfvt")
+region = Rect2(11, 59, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hbh1y"]
+texture = SubResource("AtlasTexture_gvy4t")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[node name="CreditsScreen" type="CanvasLayer"]
+script = ExtResource("1_3mfvt")
+
+[node name="GameMenuScreenBackground" parent="." instance=ExtResource("1_qlhta")]
+position = Vector2(-92, -30)
+
+[node name="MouseCursorComponent" parent="." instance=ExtResource("2_2f8bi")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("3_egor5")
+
+[node name="ExitButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"CrossGameButton"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -114.5
+offset_right = 159.0
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_egor5")
+theme_type_variation = &"DarkWoodPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hbh1y")
+disabled = true
+text = "
+--- Carrot cottage ---
+
+Developers
+ • Crinsay    •    Farexx30 •
+
+Assets
+•  Sprout Lands (by Cup Nooble)  •
+
+Thank you for playing!
+
+"
+
+[connection signal="pressed" from="MarginContainer/ExitButton" to="." method="OnExitButtonPressed"]

@@ -42,6 +42,11 @@ public partial class GameMenuScreen : CanvasLayer
         _gameManager.SaveGame();
     }
 
+    private void OnCreditsButtonPressed()
+    {
+        _gameManager.GoToCredits();
+    }
+
     private void OnExitGameButtonPressed()
     {
         _gameManager.ExitGame();
