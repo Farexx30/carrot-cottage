@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://xuejcg5sac28"]
+[gd_scene load_steps=9 format=3 uid="uid://xuejcg5sac28"]
 
 [ext_resource type="Texture2D" uid="uid://b5ijwnlkvlc5f" path="res://Assets/Objects/Mushrooms, Flowers, Stones.png" id="1_od8ay"]
 [ext_resource type="Script" uid="uid://wbigejhpg2ft" path="res://Scripts/Objects/RockScripts/SmallRock.cs" id="2_od8ay"]
 [ext_resource type="PackedScene" uid="uid://h0w22fuwd26x" path="res://Scenes/Components/HurtComponent.tscn" id="3_kbrqd"]
+[ext_resource type="PackedScene" uid="uid://cqfye5qhvo5fx" path="res://Audio/PickaxeHitRockSFX.tscn" id="3_vykf7"]
 [ext_resource type="PackedScene" uid="uid://51hbt54rbm7l" path="res://Scenes/Components/HealthComponent.tscn" id="4_o2bce"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8832"]
@@ -22,6 +23,8 @@ position = Vector2(0, 3)
 texture = SubResource("AtlasTexture_t8832")
 offset = Vector2(0, -3)
 script = ExtResource("2_od8ay")
+
+[node name="PickaxeHitRockSfx" parent="." instance=ExtResource("3_vykf7")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["navigation_polygon_source_geometry_group"]]
 

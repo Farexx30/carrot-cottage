@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqfye5qhvo5fx"]
+
+[ext_resource type="AudioStream" uid="uid://p86ltay22xc7" path="res://Assets/Audio/zapsplat_industrial_tool_pick_axe_hit_lose_rocks_007_104617.mp3" id="1_lkptj"]
+[ext_resource type="AudioStream" uid="uid://dt2eu23hurc31" path="res://Assets/Audio/zapsplat_industrial_tool_pick_axe_hit_lose_rocks_008_104618.mp3" id="2_nesrk"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xa7bm"]
+streams_count = 2
+stream_0/stream = ExtResource("1_lkptj")
+stream_1/stream = ExtResource("2_nesrk")
+
+[node name="PickaxeHitRockSfx" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_xa7bm")
+bus = &"ActivitiesSFX"
