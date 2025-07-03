@@ -9,6 +9,7 @@ public partial class NormalTree : Sprite2D
 {
     private HurtComponent _hurtComponent = default!;
     private HealthComponent _healthComponent = default!;
+    private AudioStreamPlayer2D _hitSFXAudioPlayer = default!;
 
     private readonly PackedScene _smallLogScene = TreeConstants.Scenes.SmallLogScene;
 
@@ -16,6 +17,7 @@ public partial class NormalTree : Sprite2D
     {
         _hurtComponent = GetNode<HurtComponent>(ComponentNames.HurtComponent);
         _healthComponent = GetNode<HealthComponent>(ComponentNames.HealthComponent);
+        _hitSFXAudioPlayer = GetNode<AudioStreamPlayer2D>(TreeConstants.Nodes.HitSFX);
 
         _hurtComponent.Hurt += OnHurt;
         _healthComponent.NoHealthReached += OnNoHealthReached;
@@ -47,6 +49,7 @@ public partial class NormalTree : Sprite2D
     private async void OnHurt(int damage)
     {
         _healthComponent.ApplyDamage(damage);
+        _hitSFXAudioPlayer.Play();
 
         if (Material is ShaderMaterial shaderMaterial)
         {

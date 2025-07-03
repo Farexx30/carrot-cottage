@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bybcymnh7334j"]
+[gd_scene load_steps=11 format=3 uid="uid://bybcymnh7334j"]
 
 [ext_resource type="Texture2D" uid="uid://dv7cns18ex2yd" path="res://Assets/Objects/Trees, stumps and bushes.png" id="1_dp8ia"]
 [ext_resource type="Script" uid="uid://qts2rpbt48e4" path="res://Scripts/Objects/TreeScripts/SmallTree.cs" id="2_2rda7"]
 [ext_resource type="PackedScene" uid="uid://h0w22fuwd26x" path="res://Scenes/Components/HurtComponent.tscn" id="2_52b2c"]
 [ext_resource type="Shader" uid="uid://dro03iowxp5ss" path="res://Shaders/Shake.gdshader" id="4_7ctxe"]
 [ext_resource type="PackedScene" uid="uid://51hbt54rbm7l" path="res://Scenes/Components/HealthComponent.tscn" id="4_pu616"]
+[ext_resource type="PackedScene" uid="uid://c250m4u0r1wca" path="res://Audio/AxeHitTreeSFX.tscn" id="4_som3e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pu616"]
 resource_local_to_scene = true
@@ -30,6 +31,8 @@ position = Vector2(0, 3)
 texture = SubResource("AtlasTexture_52b2c")
 offset = Vector2(0, -11)
 script = ExtResource("2_2rda7")
+
+[node name="AxeHitTreeSfx" parent="." instance=ExtResource("4_som3e")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(0, 1)
