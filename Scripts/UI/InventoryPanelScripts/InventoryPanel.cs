@@ -26,7 +26,7 @@ public partial class InventoryPanel : PanelContainer
         _inventoryManager.InventoryChanged += OnInventoryChanged;
     }
 
-    private void OnInventoryChanged(StringName collectableKey)
+    private void OnInventoryChanged(StringName collectableKey, bool _)
     {
         if (!_inventoryManager.Inventory.TryGetValue(collectableKey, out int value))
         {

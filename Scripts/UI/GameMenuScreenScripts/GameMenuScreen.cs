@@ -24,6 +24,11 @@ public partial class GameMenuScreen : CanvasLayer
         saveGameButton.FocusMode = !canSave
             ? FocusModeEnum.None 
             : FocusModeEnum.All;
+
+        var musicToggleButton = GetNode<Button>(GameMenuScreenConstants.Nodes.MusicToggleButton);
+        var sfxToggleButton = GetNode<Button>(GameMenuScreenConstants.Nodes.SFXToggleButton);
+        musicToggleButton.ButtonPressed = _gameManager.MusicOn;
+        sfxToggleButton.ButtonPressed = _gameManager.SFXOn;
     }
 
     private async void OnStartGameButtonPressed()
@@ -37,8 +42,23 @@ public partial class GameMenuScreen : CanvasLayer
         _gameManager.SaveGame();
     }
 
+    private void OnCreditsButtonPressed()
+    {
+        _gameManager.GoToCredits();
+    }
+
     private void OnExitGameButtonPressed()
     {
         _gameManager.ExitGame();
+    }
+
+    private void OnMusicButtonPressed()
+    {
+        _gameManager.ToggleMusic();
+    }
+
+    private void OnSFXButtonPressed()
+    {
+        _gameManager.ToggleSFX();
     }
 }

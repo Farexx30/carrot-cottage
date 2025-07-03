@@ -7,7 +7,7 @@ namespace CarrotCottage.Scripts.Globals;
 public partial class InventoryManager : Node
 {
     [Signal]
-    public delegate void InventoryChangedEventHandler(StringName collectableKey);
+    public delegate void InventoryChangedEventHandler(StringName collectableKey, bool collected);
 
     public Dictionary<StringName, int> Inventory { get; } = [];
 
@@ -22,7 +22,7 @@ public partial class InventoryManager : Node
 
         GD.Print($"{collectableName} added to inventory. Total: {Inventory[collectableName]}");
 
-        EmitSignal(SignalName.InventoryChanged, collectableName);
+        EmitSignal(SignalName.InventoryChanged, collectableName, true);
     }
 
     public void RemoveCollectable(StringName collectableName, int quantity = 1)
@@ -31,7 +31,7 @@ public partial class InventoryManager : Node
         {
             Inventory[collectableName] = value - quantity;
             GD.Print($"{quantity} {collectableName} removed from inventory. Current count: {Inventory[collectableName]}");
-            EmitSignal(SignalName.InventoryChanged, collectableName);
+            EmitSignal(SignalName.InventoryChanged, collectableName, false);
         }
     }
 }

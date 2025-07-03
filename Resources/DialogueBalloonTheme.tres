@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://dr6skc6awwwtm"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://dr6skc6awwwtm"]
 
 [ext_resource type="Texture2D" uid="uid://bg2mtypbqckh2" path="res://Assets/UI/Sprite sheet for Basic Pack.png" id="1_vugoc"]
 
@@ -69,6 +69,12 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xisxp"]
+atlas = ExtResource("1_vugoc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17u10"]
+texture = SubResource("AtlasTexture_xisxp")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqmv0"]
 atlas = ExtResource("1_vugoc")
 region = Rect2(275, 212, 90, 25)
@@ -88,6 +94,8 @@ Button/styles/normal = SubResource("StyleBoxTexture_aqmv0")
 Button/styles/pressed = SubResource("StyleBoxTexture_p4nss")
 CharacterNameText/base_type = &"RichTextLabel"
 CharacterNameText/font_sizes/normal_font_size = 14
+CrossGameButton/base_type = &"Button"
+CrossGameButton/styles/normal = SubResource("StyleBoxTexture_17u10")
 DialogueText/base_type = &"RichTextLabel"
 DialogueText/font_sizes/normal_font_size = 12
 MarginContainer/constants/margin_bottom = 10
