@@ -8,8 +8,6 @@ namespace CarrotCottage.Scripts.UI.GameMenuScreenScripts;
 public partial class GameMenuScreen : CanvasLayer
 {
     private GameManager _gameManager = default!;
-    private Button _musicToggleButton = default!;
-    private Button _sfxToggleButton = default!;
 
     public override void _Ready()
     {
@@ -27,8 +25,10 @@ public partial class GameMenuScreen : CanvasLayer
             ? FocusModeEnum.None 
             : FocusModeEnum.All;
 
-        _musicToggleButton = GetNode<Button>(GameMenuScreenConstants.Nodes.MusicToggleButton);
-        _sfxToggleButton = GetNode<Button>(GameMenuScreenConstants.Nodes.SFXToggleButton);
+        var musicToggleButton = GetNode<Button>(GameMenuScreenConstants.Nodes.MusicToggleButton);
+        var sfxToggleButton = GetNode<Button>(GameMenuScreenConstants.Nodes.SFXToggleButton);
+        musicToggleButton.ButtonPressed = _gameManager.MusicOn;
+        sfxToggleButton.ButtonPressed = _gameManager.SFXOn;
     }
 
     private async void OnStartGameButtonPressed()
@@ -45,5 +45,15 @@ public partial class GameMenuScreen : CanvasLayer
     private void OnExitGameButtonPressed()
     {
         _gameManager.ExitGame();
+    }
+
+    private void OnMusicButtonPressed()
+    {
+        _gameManager.ToggleMusic();
+    }
+
+    private void OnSFXButtonPressed()
+    {
+        _gameManager.ToggleSFX();
     }
 }

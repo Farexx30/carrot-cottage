@@ -74,7 +74,7 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_font_sizes/font_size = 18
 text = "MUSIC"
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/MusicHBoxContainer"]
+[node name="MusicButton" type="Button" parent="MarginContainer/HBoxContainer/MusicHBoxContainer"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -90,7 +90,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "SFX"
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/SFXHBoxContainer"]
+[node name="SFXButton" type="Button" parent="MarginContainer/HBoxContainer/SFXHBoxContainer"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -101,3 +101,5 @@ button_pressed = true
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartOrContinueGameButton" to="." method="OnStartGameButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="OnSaveGameButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="OnExitGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MusicHBoxContainer/MusicButton" to="." method="OnMusicButtonPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/SFXHBoxContainer/SFXButton" to="." method="OnSFXButtonPressed"]

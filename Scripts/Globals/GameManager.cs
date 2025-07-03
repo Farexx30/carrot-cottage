@@ -14,6 +14,9 @@ public partial class GameManager : Node
 
     public bool CanSave { get; private set; } = false;
     public bool GameAlreadyStarted { get; private set; } = true;
+    public bool MusicOn { get; private set; } = true;
+    public bool SFXOn { get; private set; } = true;
+
     private bool _shouldLoadLevel = true;
 
     public override void _Ready()
@@ -54,6 +57,37 @@ public partial class GameManager : Node
     public void ExitGame()
     {
         GetTree().Quit();
+    }
+
+    public void ToggleMusic()
+    {
+        var musicAudioBusIndex = AudioServer.GetBusIndex("Music");
+
+        if (musicAudioBusIndex < 0)
+        {
+            GD.PrintErr("Music audio bus not found.");
+            return;
+        }
+
+        MusicOn = !MusicOn;
+        AudioServer.SetBusMute(musicAudioBusIndex, !MusicOn);
+    }
+
+    public void ToggleSFX()
+    {
+        var animalsSfxAudioBusIndex = AudioServer.GetBusIndex("AnimalsSFX");
+        var activitiesSfxAudioBusIndex = AudioServer.GetBusIndex("ActivitiesSFX");
+
+        if (animalsSfxAudioBusIndex < 0
+            || activitiesSfxAudioBusIndex < 0)
+        {
+            GD.PrintErr("AnimalsSFX or ActivitiesSFX audio bus not found.");
+            return;
+        }
+
+        SFXOn = !SFXOn;
+        AudioServer.SetBusMute(animalsSfxAudioBusIndex, !SFXOn);
+        AudioServer.SetBusMute(activitiesSfxAudioBusIndex, !SFXOn);
     }
 
     private void OpenMainMenuScreen()
