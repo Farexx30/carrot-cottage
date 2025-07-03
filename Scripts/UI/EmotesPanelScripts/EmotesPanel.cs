@@ -29,19 +29,32 @@ public partial class EmotesPanel : Panel
         _emoteIdleTimer = GetNode<Timer>(EmotesPanelConstants.Nodes.EmoteIdleTimer);
 
         _inventoryManager.InventoryChanged += OnInventoryChanged;
+        _dialogueManager.GivePlantSeeds += OnGivePlantSeeds;
         _dialogueManager.FeedTheAnimals += OnFeedTheAnimals;
 
         _animatedSprite2D.Play(EmotesPanelConstants.Animations.Idle);
     }
 
+    private void OnGivePlantSeeds()
+    {
+        _emoteIdleTimer.Start();
+        PlayEmote(EmotesPanelConstants.Animations.Excited);
+    }
+
     private void OnFeedTheAnimals()
     {
-
+        _emoteIdleTimer.Start();
         PlayEmote(EmotesPanelConstants.Animations.Kiss);
     }
 
-    private void OnInventoryChanged(StringName collectableKey)
+    private void OnInventoryChanged(StringName _, bool collected)
     {
+        if (!collected)
+        {
+            return;
+        }
+
+        _emoteIdleTimer.Start();
         PlayEmote(EmotesPanelConstants.Animations.Excited);
     }
 

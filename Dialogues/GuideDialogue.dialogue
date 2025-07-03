@@ -1,14 +1,36 @@
 ~ start
 do CarrotCottageDialogueManager.DialogueStart()
-Ginger: [[Hi|Hello|Howdy]], nice to meet you.
-Ginger: Welcome to your new farm.
-Ginger: As you can see the cows and chickens are hungry.
-Ginger: You need to grow some plants to feed them.
-Ginger: Here are some seeds to grow them.
-- Take plant seeds
-	Oregano: Yeah, I can grow plants.
-	do CarrotCottageDialogueManager.GiveSeeds()
-- No, I don't want them
-	Oregano: I'm not ready to grow my farm yet.	
+Ginger: [[Hi|Hello|Howdy]], how are you?
+Ginger: Welcome to your farm.
+Ginger: Would you like me to show you around a bit? 
+- Yes, please
+	Ginger: I’m guessing you already know how to walk, since you made it here!  
+	Ginger: But just in case, you can move using W, A, S, D or the arrow keys.
+	
+	Ginger: You can also chop down the trees with an axe.
+	Ginger: There are three types: small, medium, and large.
+	Ginger: Each one takes a different number of chops to break, but the bigger the tree, the better the loot!  
+	Oregano: Hmm, that's interesting. Keep going!
+	
+	Ginger: You can also mine rocks using the axe, just like with trees.
+	Ginger: They drop stones you can collect.
+	
+	Ginger: Oh! and I almost forgot...
+	Ginger: As you can see your cows and chickens are hungry.
+	Ginger: You'll need to grow some plants to feed them.
+	Oregano: How do I take care of them?
+	Ginger: First, till the land, then plant the seeds. After that, water them to help them grow. 
+	Ginger: After a few days, they’ll be ready to harvest.
+	Ginger: To make your life easier, you can speed up time using the three buttons below the clock.
+	Ginger: I can give you some basic seeds and tools to get started. Want them?
+	- Yes, I would like to
+		do CarrotCottageDialogueManager.GiveSeeds()
+		Oregano: [[Thank you|Thanks]]! I can grow my plants now.
+		Ginger: You are welcome! Good luck and [[see ya later| have a nice day]]!
+	- No, I don't want them
+		Oregano: [[Sorry|Apologizes]], I'm not ready yet.
+		Ginger: [[Okay|Sure|No problem]], come back when you're ready. Have a nice day!
+- Nah, I am fine
+	Ginger: [[Okay|Sure|No problem]], have a nice day!
 do CarrotCottageDialogueManager.DialogueEnd()
 => END
