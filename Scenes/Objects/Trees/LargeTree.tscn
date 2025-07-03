@@ -34,7 +34,6 @@ offset = Vector2(0, -21)
 script = ExtResource("2_3shh3")
 
 [node name="AxeHitTreeSfx" parent="." instance=ExtResource("4_lws2t")]
-bus = &"Master"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["navigation_polygon_source_geometry_group"]]
 

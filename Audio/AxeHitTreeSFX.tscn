@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c250m4u0r1wca"]
+[gd_scene load_steps=5 format=3 uid="uid://c250m4u0r1wca"]
 
-[ext_resource type="AudioStream" uid="uid://c41fkx05o55s1" path="res://Assets/Audio/ax_hit_log_06.wav" id="1_4rlwu"]
+[ext_resource type="AudioStream" uid="uid://cvef4oiak5y1t" path="res://Assets/Audio/ax_hit_log_03.wav" id="1_4rlwu"]
+[ext_resource type="AudioStream" uid="uid://dcrfcwcxkq06g" path="res://Assets/Audio/ax_hit_log_05.wav" id="2_ftj2f"]
+[ext_resource type="AudioStream" uid="uid://c41fkx05o55s1" path="res://Assets/Audio/ax_hit_log_06.wav" id="3_ma83g"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_16uo5"]
+streams_count = 3
+stream_0/stream = ExtResource("1_4rlwu")
+stream_1/stream = ExtResource("2_ftj2f")
+stream_2/stream = ExtResource("3_ma83g")
+stream_2/weight = 2.0
 
 [node name="AxeHitTreeSfx" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_4rlwu")
+stream = SubResource("AudioStreamRandomizer_16uo5")
 bus = &"ActivitiesSFX"

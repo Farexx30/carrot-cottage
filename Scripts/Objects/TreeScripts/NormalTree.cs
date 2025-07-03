@@ -48,8 +48,8 @@ public partial class NormalTree : Sprite2D
 
     private async void OnHurt(int damage)
     {
-        _healthComponent.ApplyDamage(damage);
         _hitSFXAudioPlayer.Play();
+        _healthComponent.ApplyDamage(damage);
 
         if (Material is ShaderMaterial shaderMaterial)
         {
